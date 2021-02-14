@@ -1,0 +1,125 @@
+{
+    "final_space": true,
+    "console_title": false,
+    "console_title_style": "",
+    "console_title_template": "",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "horizontal_offset": 0,
+            "vertical_offset": 0,
+            "segments": [
+                {
+                    "type": "root",
+                    "style": "plain",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#FFEE58",
+                    "background": "",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": null
+                },
+                {
+                    "type": "session",
+                    "style": "diamond",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#454545",
+                    "background": "#efefef",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": null
+                },
+                {
+                    "type": "path",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#100e23",
+                    "background": "#91ddff",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": {
+                        "style": "full"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#193549",
+                    "background": "#95ffa4",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": null
+                },
+                {
+                    "type": "python",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#100e23",
+                    "background": "#906cff",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": {
+                        "prefix": "  "
+                    }
+                },
+                {
+                    "type": "exit",
+                    "style": "diamond",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#ffffff",
+                    "background": "#2e9599",
+                    "leading_diamond": "",
+                    "trailing_diamond": "",
+                    "properties": {
+                        "always_enabled": true,
+                        "color_background": true,
+                        "display_exit_code": false,
+                        "error_color": "#f1184c",
+                        "prefix": "\u003ctransparent\u003e\u003c/\u003e "
+                    }
+                }
+            ]
+        },
+        {
+          "type": "prompt",
+          "alignment": "right",
+          "segments": [
+            {
+              "type": "time",
+              "style": "plain",
+              "foreground": "#ffffff",
+              "properties": {
+                "prefix": "[",
+                "postfix": "]"
+              }
+            }
+          ]
+        },
+        {
+          "type": "newline"
+        },
+        {
+          "type": "prompt",
+          "alignment": "left",
+          "segments": [
+            {
+              "type": "text",
+              "style": "plain",
+              "foreground": "#007ACC",
+              "properties": {
+                "prefix": "",
+                "text": "\u276F"
+              }
+            }
+          ]
+        }
+    ]
+}

@@ -3,6 +3,8 @@ Write-Host "Loading profile ..."
 Import-Module posh-git
 Import-Module oh-my-posh
 
+Set-StrictMode -Version Latest
+
 $ProfileScriptDir = $PSScriptRoot;
 
 Set-PoshPrompt -Theme $ProfileScriptDir\oh-my-posh-theme.json

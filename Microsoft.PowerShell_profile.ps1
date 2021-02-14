@@ -12,6 +12,8 @@ Set-PoshPrompt -Theme $ProfileScriptDir\oh-my-posh-theme.json
 if ($host.Name -eq 'ConsoleHost')
 {
     Import-Module PSReadLine
+    Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
 }
 
 Write-Host "Load custom scripts ..."

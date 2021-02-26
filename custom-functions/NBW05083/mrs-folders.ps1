@@ -15,6 +15,10 @@ function mrslib() {
     Set-Location -Path "D:\dev\mrs\lib"
 }
 
+function mrsexample() {
+    Set-Location -Path "D:\dev\mrs\api\portable-api\clients\dart\mrsclient\example"
+}
+
 function mrsportable() {
     Set-Location -Path "D:\dev\mrs\api\portable-api"
 }
@@ -33,4 +37,12 @@ function mrsauth() {
 
 function mrsmission() {
     Set-Location -Path "D:\dev\mrs\app\mission-app"
+}
+
+function mrsuser() {
+    Set-Location -Path "D:\dev\mrs\app\user-app"
+}
+
+function mrsconfig() {
+    Set-Location -Path "D:\dev\mrs\app\config-app"
 }

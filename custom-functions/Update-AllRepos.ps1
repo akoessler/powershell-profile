@@ -1,40 +1,45 @@
 
-function __LoopSubfolders([String] $Directory, [Int32] $MaxNestingLevel, [Int32] $NestingLevel)
+function __LoopSubfolders_updaterepos([String] $Directory, [Int32] $MaxNestingLevel, [Int32] $NestingLevel)
 {
-    Write-Host ""
-    Write-Host "=====  " $Directory
-    Write-Host ""
+    Write-Verbose -Message ""
+    Write-Verbose -Message ("=====  " + $Directory)
+    Write-Verbose -Message ""
 
     Set-Location $Directory
     Get-ChildItem -Path $Directory -Directory | ForEach-Object {
         $gitfolder = Join-Path -Path $_.FullName -ChildPath ".git"
         if (Test-Path $gitfolder)
         {
-            Write-Host "- " $_.Name ": is a git repo => do update"
+            Write-Verbose -Message ("- " + $_.Name + ": is a git repo => do update")
 
             Set-Location $_.FullName
-            Write-Host "> " $_.FullName
+            Write-Host ""
+            Write-Host ("> " + $_.FullName)
+
+            Write-Host ""
+            Invoke-Expression "git branch --show-current"
+
             Write-Host ""
 
             $GitCommand = "git pull"
-            Write-Host $GitCommand
+            Write-Verbose -Message $GitCommand
             Invoke-Expression $GitCommand
 
             Write-Host ""
         }
         elseif ($NestingLevel -le $MaxNestingLevel)
         {
-            Write-Host "- " $_.Name ": not a repo => check subfolders"
+            Write-Verbose -Message ("- " + $_.Name + ": not a repo => check subfolders")
             $NextNestingLevel = $NestingLevel + 1
-            __LoopSubfolders $_.FullName $MaxNestingLevel $NextNestingLevel
+            __LoopSubfolders_updaterepos $_.FullName $MaxNestingLevel $NextNestingLevel
         }
         else
         {
-            Write-Host "- " $_.Name ": not a repo => max nesting reached"
+            Write-Verbose -Message ("- " + $_.Name + ": not a repo => max nesting reached")
         }
     }
 
-    Write-Host ""
+    Write-Verbose ""
 }
 
 function Update-AllRepos([String] $Path, [Int32] $MaxNestingLevel = 1)
@@ -45,14 +50,18 @@ function Update-AllRepos([String] $Path, [Int32] $MaxNestingLevel = 1)
         $Path = $CurrentLocation
     }
 
+    Write-Verbose -Message $CurrentLocation
+
     try
     {
-        __LoopSubfolders $Path $MaxNestingLevel 0
+        __LoopSubfolders_updaterepos $Path $MaxNestingLevel 0
     }
     finally
     {
         Set-Location $CurrentLocation
     }
+
+    Write-Verbose -Message "Done."
 }
 
 Set-Alias "pullall" Update-AllRepos

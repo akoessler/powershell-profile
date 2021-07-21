@@ -10,7 +10,16 @@ function __LoopSubfolders_printbranches([String] $Directory, [Int32] $MaxNesting
             Write-Host "> " $_.FullName
 
             $GitCommand = "git branch --show-current"
-            Invoke-Expression $GitCommand
+            Invoke-Expression $GitCommand | Tee-Object -Variable BranchName
+
+            if ($BranchName -eq "master" || $BranchName -eq "main")
+            {
+                Write-Host "- ok" -ForegroundColor Green
+            }
+            else
+            {
+                Write-Host ("- not master: " + $BranchName) -ForegroundColor Magenta
+            }
         }
         elseif ($NestingLevel -le $MaxNestingLevel)
         {

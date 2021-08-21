@@ -24,9 +24,9 @@ function Update-AllModules() {
             Write-Host -ForegroundColor Cyan " $moduleName - Update from $currentVersion to $updateVersion ($updateDate)" 
             try {
                 if ($isPrerelease) {
-                    Update-Module -Name $module -Force -AllowPrerelease
+                    Update-Module -Name $moduleName -Force -AllowPrerelease
                 } else {
-                    Update-Module -Name $module -Force
+                    Update-Module -Name $moduleName -Force
                 }
             }
             catch {

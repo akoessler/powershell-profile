@@ -9,12 +9,8 @@ $StopwatchInit = [System.Diagnostics.Stopwatch]::StartNew()
 Write-Host "    Import modules" -NoNewLine -ForegroundColor DarkGray
 $StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
 
-if ($Global:CustomProfileModulesAreLoaded = $false)
-{
-    Import-Module posh-git -Global
-    Import-Module oh-my-posh -Global
-    $Global:CustomProfileModulesAreLoaded = $true
-}
+Import-Module posh-git -Global
+Import-Module oh-my-posh -Global
 
 Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
 
@@ -22,9 +18,12 @@ Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -For
 Write-Host "    Set settings" -NoNewLine -ForegroundColor DarkGray
 $StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
 
+
 Set-StrictMode -Version Latest
 
 $ProfileScriptDir = $PSScriptRoot;
+$env:POSH_GIT_ENABLED = $true
+
 
 Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
 
@@ -45,9 +44,11 @@ if ($host.Name -eq 'ConsoleHost')
     Import-Module PSReadLine
     Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
     Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
+    Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
 }
-
-Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+else {
+    Write-Host (" - skipped (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+}
 
 
 Write-Host ("  Init finished (" + $StopwatchInit.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGreen

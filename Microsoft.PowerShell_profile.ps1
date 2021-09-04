@@ -11,6 +11,7 @@ $StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
 
 Import-Module posh-git -Global
 Import-Module oh-my-posh -Global
+Import-Module Terminal-Icons -Global
 
 Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
 
@@ -42,6 +43,10 @@ $StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
 if ($host.Name -eq 'ConsoleHost')
 {
     Import-Module PSReadLine
+    Set-PSReadLineOption -EditMode Windows
+    Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionViewStyle ListView
+    Set-PSReadLineOption -HistorySearchCursorMovesToEnd
     Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
     Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
     Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray

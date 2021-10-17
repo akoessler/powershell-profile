@@ -47,10 +47,10 @@
         {
           "type": "path",
           "style": "diamond",
-          "leading_diamond": "<transparent, #2e9599>\uE0B0</>",
+          "leading_diamond": "<transparent, #48d3d8>\uE0B0</>",
           "trailing_diamond": "\uE0B0",
           "foreground": "#000000",
-          "background": "#2e9599",
+          "background": "#48d3d8",
           "properties": {
             "style": "full",
             "folder_icon": "\uF115",

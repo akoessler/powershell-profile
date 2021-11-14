@@ -13,6 +13,11 @@ Import-Module posh-git -Global
 Import-Module oh-my-posh -Global
 Import-Module Terminal-Icons -Global
 
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+    Import-Module "$ChocolateyProfile"
+}
+
 Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
 
 

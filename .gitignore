@@ -1,3 +1,4 @@
 # ignore powershell internal files
 [Mm]odules/
 [Ss]cripts/
+[Hh]elp/

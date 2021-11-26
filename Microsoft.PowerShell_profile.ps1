@@ -1,91 +1,96 @@
-Write-Host "Loading profile ..." -ForegroundColor Cyan
-$StopwatchProfile = [System.Diagnostics.Stopwatch]::StartNew()
+$ExecuteTimedIndentation = 0;
+function ExecuteTimed([String] $Title, [ConsoleColor] $Color, [bool] $NewLine, [ScriptBlock] $Script) {
+    $Indent = " " * $ExecuteTimedIndentation
+    $script:ExecuteTimedIndentation = $ExecuteTimedIndentation + 2;
 
+    if ($NewLine) {
+        Write-Host ($Indent + $Title + " ...") -ForegroundColor $Color
+    } else {
+        Write-Host ($Indent + $Title) -ForegroundColor $Color -NoNewline
+    }
 
-Write-Host "  Init basic stuff ..." -ForegroundColor DarkYellow
-$StopwatchInit = [System.Diagnostics.Stopwatch]::StartNew()
+    $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 
+    $Script.Invoke();
 
-Write-Host "    Import modules" -NoNewLine -ForegroundColor DarkGray
-$StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
+    $Stopwatch.Stop();
 
-Import-Module posh-git -Global
-Import-Module oh-my-posh -Global
-Import-Module Terminal-Icons -Global
+    if ($NewLine) {
+        Write-Host ($Indent + "finished (" + $Stopwatch.ElapsedMilliseconds + "ms)") -ForegroundColor $Color
+    } else {
+        Write-Host (" - done (" + $Stopwatch.ElapsedMilliseconds + "ms)") -ForegroundColor $Color
+    }
 
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
+    $script:ExecuteTimedIndentation = $ExecuteTimedIndentation - 2;
 }
 
-Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+ExecuteTimed "Loading profile" Cyan $True {
 
+    ExecuteTimed "Imports" DarkMagenta $True {
 
-Write-Host "    Set settings" -NoNewLine -ForegroundColor DarkGray
-$StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
+        $ModulesToImport = @(
+            "oh-my-posh"
+            "Terminal-Icons"
+            "PSColor"
+            "Posh-SSH"
+            "ZLocation"
+            "PoShFuck"
+            "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+        )
 
+        foreach($ModuleToImport in $ModulesToImport) {
+            ExecuteTimed ("Import " + $ModuleToImport) DarkGray $false {
+                Import-Module $ModuleToImport
+            }
+        }
 
-Set-StrictMode -Version Latest
+    }
 
-$ProfileScriptDir = $PSScriptRoot;
-$env:POSH_GIT_ENABLED = $true
+    ExecuteTimed "Init" DarkMagenta $True {
 
+        ExecuteTimed "Set Variables" DarkGray $False {
+            Set-StrictMode -Version Latest
+            $script:ProfileScriptDir = $PSScriptRoot;
+            $env:POSH_GIT_ENABLED = $true
+        }
 
-Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+        ExecuteTimed "Load oh-my-posh" DarkGray $false {
+            Set-PoshPrompt -Theme $ProfileScriptDir\oh-my-posh-theme.json
+        }
 
+        ExecuteTimed "Load PSReadLine" DarkGray $false {
+            if ($host.Name -eq 'ConsoleHost') {
+                Import-Module PSReadLine
+                Set-PSReadLineOption -EditMode Windows
+                Set-PSReadLineOption -PredictionSource History
+                Set-PSReadLineOption -PredictionViewStyle ListView
+                Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+                Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
+                Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
+            } else {
+                Write-Host " - skipped" - -ForegroundColor DarkGray -NoNewline
+            }
+        }
 
-Write-Host "    Load oh-my-posh" -NoNewLine -ForegroundColor DarkGray
-$StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
+    }
 
-Set-PoshPrompt -Theme $ProfileScriptDir\oh-my-posh-theme.json
+    ExecuteTimed "Load custom scripts" DarkMagenta $True {
 
-Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+        $CustomFunctionsScriptPath = "$ProfileScriptDir\custom-functions\"
+        $CustomFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$env:COMPUTERNAME"
 
+        if (Test-Path $customFunctionsScriptPathMachine) {
+            $CustomFunctionsScripts = Get-ChildItem -File -Path $CustomFunctionsScriptPath,$CustomFunctionsScriptPathMachine
+        } else {
+            $CustomFunctionsScripts = Get-ChildItem -File -Path $CustomFunctionsScriptPath
+        }
 
-Write-Host "    Load PSReadLine" -NoNewLine -ForegroundColor DarkGray
-$StopwatchInitDetail = [System.Diagnostics.Stopwatch]::StartNew()
+        foreach($CustomFunctionScript in $CustomFunctionsScripts) {
+            $ScriptName = ($CustomFunctionScript.FullName -replace [regex]::Escape($CustomFunctionsScriptPath), "")
+            ExecuteTimed ("Import " + $ScriptName) DarkGray $false {
+                Import-Module $CustomFunctionScript.FullName
+            }
+        }
 
-if ($host.Name -eq 'ConsoleHost')
-{
-    Import-Module PSReadLine
-    Set-PSReadLineOption -EditMode Windows
-    Set-PSReadLineOption -PredictionSource History
-    Set-PSReadLineOption -PredictionViewStyle ListView
-    Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-    Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
-    Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
-    Write-Host (" - done (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
+    }
 }
-else {
-    Write-Host (" - skipped (" + $StopwatchInitDetail.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
-}
-
-
-Write-Host ("  Init finished (" + $StopwatchInit.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGreen
-
-
-Write-Host "  Load custom scripts ..." -ForegroundColor DarkYellow
-$StopwatchScripts = [System.Diagnostics.Stopwatch]::StartNew()
-
-$customFunctionsScriptPath = "$ProfileScriptDir\custom-functions\"
-$customFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$env:COMPUTERNAME"
-
-if (Test-Path $customFunctionsScriptPathMachine) {
-    $customFunctionsScripts = Get-ChildItem -File -Path $customFunctionsScriptPath,$customFunctionsScriptPathMachine
-} else {
-    $customFunctionsScripts = Get-ChildItem -File -Path $customFunctionsScriptPath
-}
-
-foreach($script in $customFunctionsScripts) {
-    $scriptName = ($script.FullName -replace [regex]::Escape($customFunctionsScriptPath), "")
-    Write-Host "    Import $scriptName" -NoNewLine -ForegroundColor DarkGray
-    $StopwatchImport = [System.Diagnostics.Stopwatch]::StartNew()
-    Import-Module $script.FullName
-    Write-Host (" - done (" + $StopwatchImport.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGray
-}
-
-Write-Host ("  Custom scripts finished (" + $StopwatchScripts.ElapsedMilliseconds + "ms)") -ForegroundColor DarkGreen
-
-
-Write-Host ("Profile load complete (" + $StopwatchProfile.ElapsedMilliseconds + "ms)") -ForegroundColor Cyan
-Write-Host ""

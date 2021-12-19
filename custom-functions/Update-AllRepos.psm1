@@ -64,4 +64,6 @@ function Update-AllRepos([String] $Path, [Int32] $MaxNestingLevel = 1)
     Write-Verbose -Message "Done."
 }
 
+Export-ModuleMember -Function 'Update-AllRepos'
+
 Set-Alias "pullall" Update-AllRepos

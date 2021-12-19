@@ -29,7 +29,7 @@ function __LoopSubfolders_printbranches([String] $Directory, [Int32] $MaxNesting
     }
 }
 
-function Print-AllBranches([String] $Path, [Int32] $MaxNestingLevel = 1)
+function Write-AllBranches([String] $Path, [Int32] $MaxNestingLevel = 1)
 {
     $CurrentLocation = (Get-Location).path
 
@@ -47,4 +47,7 @@ function Print-AllBranches([String] $Path, [Int32] $MaxNestingLevel = 1)
     }
 }
 
-Set-Alias "printbranches" Print-AllBranches
+Export-ModuleMember -Function 'Write-AllBranches'
+
+Set-Alias "printbranches" Write-AllBranches
+Set-Alias "writebranches" Write-AllBranches

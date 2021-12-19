@@ -80,9 +80,9 @@ ExecuteTimed "Loading profile" Cyan $True {
         $CustomFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$env:COMPUTERNAME"
 
         if (Test-Path $customFunctionsScriptPathMachine) {
-            $CustomFunctionsScripts = Get-ChildItem -File -Path $CustomFunctionsScriptPath,$CustomFunctionsScriptPathMachine
+            $CustomFunctionsScripts = Get-ChildItem -File -Filter *.psm1 -Path $CustomFunctionsScriptPath,$CustomFunctionsScriptPathMachine
         } else {
-            $CustomFunctionsScripts = Get-ChildItem -File -Path $CustomFunctionsScriptPath
+            $CustomFunctionsScripts = Get-ChildItem -File -Filter *.psm1 -Path $CustomFunctionsScriptPath
         }
 
         foreach($CustomFunctionScript in $CustomFunctionsScripts) {

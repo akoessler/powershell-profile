@@ -1,25 +1,92 @@
+#Requires -RunAsAdministrator
+#must be admin for chocolatey
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
-Set-ExecutionPolicy RemoteSigned -Scope MachinePolicy
+function ExecuteTimed([String] $Title, [ConsoleColor] $Color, [ScriptBlock] $Script) {
+    Write-Host ($Title + " ...") -ForegroundColor $Color
+    $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor [System.Net.SecurityProtocolType]::Tls12
+    try {
+        $Script.Invoke();
+    }
+    catch {
+        Write-Host -ForegroundColor Red $_.Exception.Message
+    }
 
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name PSColor
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name PSReadLine
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name PSScriptTools
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name Terminal-Icons
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name ZLocation
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name Posh-SSH
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name posh-git
-Install-Module -Force -Scope CurrentUser -AllowPrerelease -Name oh-my-posh
+    $Stopwatch.Stop();
+    Write-Host ("finished (" + $Stopwatch.ElapsedMilliseconds + "ms)") -ForegroundColor $Color
+}
 
-Invoke-Expression ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/mattparkes/PoShFuck/master/Install-TheFucker.ps1'))
+ExecuteTimed "Set ExecutionPolicy" Cyan {
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
+    Set-ExecutionPolicy RemoteSigned -Scope MachinePolicy
+}
 
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+ExecuteTimed "Set global options" Cyan {
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor [System.Net.SecurityProtocolType]::Tls12
+}
 
-choco install choco-upgrade-all-at-startup -y
-choco install sudo -y
-choco install bat -y
+ExecuteTimed "Install PowerShell modules from gallery" Cyan {
+    $ModulesToInstall = @(
+        "PSColor"
+        "PSReadLine"
+        "PSScriptTools"
+        "Terminal-Icons"
+        "ZLocation"
+        "Posh-SSH"
+        "posh-git"
+        "oh-my-posh"
+        "Chocolatey"
+    )
 
-choco upgrade all -y
+    foreach($ModuleToInstall in $ModulesToInstall) {
+        Write-Host ""
+        ExecuteTimed "Install Module $ModuleToInstall" DarkMagenta {
+            Install-Module -Force -Scope CurrentUser -AllowPrerelease -Verbose -Name $ModuleToInstall
+        }
+        Write-Host ""
+    }
+}
+
+ExecuteTimed "Install PowerShell modules from direct source" Cyan {
+    $ModulesToInstall = @(
+        "https://raw.githubusercontent.com/mattparkes/PoShFuck/master/Install-TheFucker.ps1"
+        "https://community.chocolatey.org/install.ps1"
+    )
+
+    foreach($ModuleToInstall in $ModulesToInstall) {
+        Write-Host ""
+        ExecuteTimed "Install Module $ModuleToInstall" DarkMagenta {
+            Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($ModuleToInstall)) | Out-Host
+        }
+        Write-Host ""
+    }
+}
+
+ExecuteTimed "Install Chocolatey Modules" Cyan {
+    $ModulesToInstall = @(
+        "choco-upgrade-all-at-startup"
+        "sudo"
+        "bat"
+        "less"
+        "dart-sdk"
+        "python"
+        "python3"
+    )
+
+    foreach($ModuleToInstall in $ModulesToInstall) {
+        Write-Host ""
+        ExecuteTimed "Install ChocolateyModule $ModuleToInstall" DarkMagenta {
+            choco install $ModuleToInstall -y -v | Out-Host
+        }
+        Write-Host ""
+    }
+}
+
+ExecuteTimed "Update Chocolatey" DarkMagenta {
+    choco upgrade chocolatey -y -v | Out-Host
+}
+
+ExecuteTimed "Update All Chocolatey Modules" DarkMagenta {
+    choco upgrade all -y -v | Out-Host
+}

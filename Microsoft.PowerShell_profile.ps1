@@ -34,12 +34,14 @@ ExecuteTimed "Loading profile" Cyan $True {
     ExecuteTimed "Imports" DarkMagenta $True {
 
         $ModulesToImport = @(
+            "posh-git"
             "oh-my-posh"
             "Terminal-Icons"
             "PSColor"
             "Posh-SSH"
             "ZLocation"
             "PoShFuck"
+            "Chocolatey"
             "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
         )
 

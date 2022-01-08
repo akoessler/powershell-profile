@@ -11,7 +11,12 @@ function ExecuteTimed([String] $Title, [ConsoleColor] $Color, [bool] $NewLine, [
 
     $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 
-    $Script.Invoke();
+    try {
+        $Script.Invoke();
+    }
+    catch {
+        Write-Host -ForegroundColor Red $_.Exception.Message
+    }
 
     $Stopwatch.Stop();
 

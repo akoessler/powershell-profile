@@ -35,6 +35,17 @@
           }
         },
         {
+          "type": "shell",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#008a2e",
+          "properties": {
+            "mapped_shell_names": {
+            }
+          }
+        },
+        {
           "type": "root",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",

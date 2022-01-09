@@ -22,6 +22,8 @@
           "foreground": "#26C6DA",
           "background": "#546E7A",
           "properties": {
+            "wsl": "",
+            "wsl_separator": ""
           }
         },
         {

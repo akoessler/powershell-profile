@@ -47,7 +47,7 @@ function Write-AllBranches([String] $Path, [Int32] $MaxNestingLevel = 1)
     }
 }
 
-Export-ModuleMember -Function 'Write-AllBranches'
+Set-Alias -Name printbranches -Value Write-AllBranches
+Set-Alias -Name writebranches -Value Write-AllBranches
 
-Set-Alias "printbranches" Write-AllBranches
-Set-Alias "writebranches" Write-AllBranches
+Export-ModuleMember -Function Write-AllBranches -Alias printbranches, writebranches

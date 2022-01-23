@@ -74,6 +74,7 @@ ExecuteTimed "Install Chocolatey Modules" Cyan {
         "python"
         "python3"
         "wget"
+        "gh"
     )
 
     foreach($ModuleToInstall in $ModulesToInstall) {

@@ -3,29 +3,27 @@ function Update-AllModules() {
 
     foreach ($installedModule in $installedModules) {
         $moduleName = $installedModule.Name
-        $modulePath = $installedModule.Path
+        $modulePath = $installedModule.InstalledLocation
         $currentVersion = $installedModule.Version
 
         $isPrerelease = $currentVersion -Match "-"
-        $isUserScope = $modulePath -Match "C:\\Users\\"
+        $releaseInfo = $isPrerelease ? "prerelease" : "stable"
 
-        if ($isPrerelease) {
-            Write-Host -ForegroundColor White "Check module $moduleName - installed: $currentVersion (prerelease) ... $modulePath"
-            $moduleInfos = Find-Module -Name $installedModule.Name -AllowPrerelease
-        } else {
-            Write-Host -ForegroundColor White "Check module $moduleName - installed: $currentVersion ... $modulePath"
-            $moduleInfos = Find-Module -Name $installedModule.Name
-        }
+        $isUserScope = $modulePath -Match "C:\\Users\\"
+        $targetScope = $isUserScope ? "CurrentUser" : "AllUsers"
+
+        Write-Host -ForegroundColor White "Check module $moduleName - installed: $currentVersion ($releaseInfo, $targetScope) ... $modulePath"
+
+        $moduleInfos = Find-Module -Name $installedModule.Name -AllowPrerelease:$isPrerelease
 
         $updateVersion = $moduleInfos.Version
         $updateDate = $moduleInfos.PublishedDate
 
         if ($updateVersion -eq $currentVersion) {
-            Write-Host -ForegroundColor Green "  $moduleName already installed in the latest version $currentVersion ($updateDate)"
+            Write-Host -ForegroundColor Green "  $moduleName already installed in the latest version $currentVersion [$updateDate]"
         }
         else {
-            $targetScope = $isUserScope ? "CurrentUser" : "AllUsers"
-            Write-Host -ForegroundColor Cyan "  $moduleName - Update from $currentVersion to $updateVersion ($updateDate) - prerelease:$isPrerelease, scope:$targetScope"
+            Write-Host -ForegroundColor Cyan "  $moduleName - Update from $currentVersion to $updateVersion [$updateDate] ($releaseInfo, $targetScope)"
             try {
                 Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
             }

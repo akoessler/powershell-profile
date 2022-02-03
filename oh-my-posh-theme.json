@@ -3,6 +3,8 @@
   "console_title": true,
   "console_title_style": "template",
   "console_title_template": "{{if .Root}}ADMIN: {{end}}{{.Folder}} ({{.Shell}})",
+  "final_space": true,
+  "version": 1,
   "blocks": [
     {
       "type": "prompt",
@@ -23,14 +25,12 @@
           "background": "#546E7A",
           "background_templates": [
             "{{ if eq .OS \"windows\" }}#025da3{{ end }}",
-            "{{ if eq .OS \"linux\" }}#DD4814{{ end }}",
             "{{ if eq .OS \"ubuntu\" }}#DD4814{{ end }}",
-            "{{ if eq .OS \"raspbian\" }}#C31C4A{{ end }}"
+            "{{ if eq .OS \"raspbian\" }}#C31C4A{{ end }}",
+            "{{ if eq .OS \"linux\" }}#da1717{{ end }}"
           ],
           "properties": {
-            "wsl": "",
-            "wsl_separator": "",
-            "postfix": "  "
+            "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}  "
           }
         },
         {
@@ -44,8 +44,7 @@
             "{{ if eq .Shell \"bash\" }}#293036{{ end }}"
           ],
           "properties": {
-            "mapped_shell_names": {
-            }
+            "template": " {{ .Name }} "
           }
         },
         {
@@ -55,7 +54,7 @@
           "foreground": "#EEEEEE",
           "background": "#546E7A",
           "properties": {
-            "display_host": false
+            "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }} "
           }
         },
         {
@@ -65,7 +64,7 @@
           "foreground": "#111111",
           "background": "#ffff66",
           "properties": {
-            "root_icon": "\uF0E7"
+            "template": " \uf0e7 "
           }
         },
         {
@@ -77,25 +76,28 @@
           "background": "#48d3d8",
           "properties": {
             "style": "full",
-            "folder_icon": "\uF115"
+            "folder_icon": "\uF115",
+            "template": " {{ .Path }} "
           }
         },
         {
           "type": "git",
           "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "powerline_symbol": "\uE0b0",
           "foreground": "#193549",
           "background": "#3dff6e",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#f3ff48{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#fa5e3b{{ end }}",
+            "{{ if gt .Ahead 0 }}#f17c37{{ end }}",
+            "{{ if gt .Behind 0 }}#89d1dc{{ end }}"
+          ],
           "properties": {
-            "display_stash_count": true,
-            "display_upstream_icon": true,
-            "status_colors_enabled": true,
-            "display_status": true,
-            "local_changes_color": "#f3ff48",
-            "ahead_and_behind_color": "#fa5e3b",
-            "behind_color": "#f17c37",
-            "ahead_color": "#89d1dc",
-            "stash_count_icon": "\uF692 "
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_worktree_count" : true,
+            "fetch_upstream_icon": true,
+            "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}}\uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} "
           }
         }
       ]
@@ -103,8 +105,7 @@
     {
       "type": "prompt",
       "alignment": "right",
-      "segments":
-      [
+      "segments": [
         {
           "type": "exit",
           "style": "powerline",
@@ -112,14 +113,12 @@
           "invert_powerline": true,
           "foreground": "#ffffff",
           "background": "#6CA35E",
+          "background_templates": [
+            "{{ if gt .Code 0 }}red{{ end }}"
+          ],
           "properties": {
-            "prefix": " ",
-            "color_background": true,
-            "error_color": "red",
-            "success_icon": "\u2713",
-            "error_icon": "\u2717 ",
-            "always_numeric": true,
-            "always_enabled": true
+            "always_enabled": true,
+            "template": " {{ if gt .Code 0 }}\u2717  {{ .Code }}{{ else }}\u2713{{ end }} "
           }
         },
         {
@@ -133,7 +132,7 @@
             "always_enabled": true,
             "threshold": 500,
             "style": "austin",
-            "prefix": " "
+            "template": " {{ .FormattedMs }} "
           }
         },
         {
@@ -145,6 +144,7 @@
           "background": "#33658A",
           "foreground": "#ffffff",
           "properties": {
+            "template": " {{ .CurrentDate | date .Format }} ",
             "time_format": "15:04:05"
           }
         }
@@ -160,13 +160,10 @@
           "style": "plain",
           "foreground": "white",
           "properties": {
-            "prefix": "",
-            "text": " \uf101",
-            "postfix": ""
+            "template": "\uf101"
           }
         }
       ]
     }
-  ],
-  "final_space": true
+  ]
 }

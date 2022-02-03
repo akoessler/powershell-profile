@@ -1,5 +1,7 @@
 function Update-AllModules() {
     $installedModules = Get-InstalledModule
+    $userDocumentsPath = [environment]::getfolderpath(“mydocuments”)
+    $userDocumentsPattern = [Regex]::Escape($userDocumentsPath)
 
     foreach ($installedModule in $installedModules) {
         $moduleName = $installedModule.Name
@@ -9,7 +11,7 @@ function Update-AllModules() {
         $isPrerelease = $currentVersion -Match "-"
         $releaseInfo = $isPrerelease ? "prerelease" : "stable"
 
-        $isUserScope = $modulePath -Match "C:\\Users\\"
+        $isUserScope = $modulePath -Match "C:\\Users\\" -or $modulePath -Match $userDocumentsPattern
         $targetScope = $isUserScope ? "CurrentUser" : "AllUsers"
 
         Write-Host -ForegroundColor White "Check module $moduleName - installed: $currentVersion ($releaseInfo, $targetScope) ... $modulePath"
@@ -25,7 +27,8 @@ function Update-AllModules() {
         else {
             Write-Host -ForegroundColor Cyan "  $moduleName - Update from $currentVersion to $updateVersion [$updateDate] ($releaseInfo, $targetScope)"
             try {
-                Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
+                Write-Host Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
+                #Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
             }
             catch {
                 Write-Host -ForegroundColor Red $_.Exception.Message

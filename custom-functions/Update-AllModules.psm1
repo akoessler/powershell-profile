@@ -27,8 +27,13 @@ function Update-AllModules() {
         else {
             Write-Host -ForegroundColor Cyan "  $moduleName - Update from $currentVersion to $updateVersion [$updateDate] ($releaseInfo, $targetScope)"
             try {
-                Write-Host Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
-                #Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease:$isPrerelease -Verbose
+                if ($isPrerelease) {
+                    Write-Host "    Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease -Verbose"
+                    Update-Module -Name $moduleName -Force -Scope $targetScope -AllowPrerelease -Verbose
+                } else {
+                    Write-Host "    Update-Module -Name $moduleName -Force -Scope $targetScope -Verbose"
+                    Update-Module -Name $moduleName -Force -Scope $targetScope -Verbose
+                }
             }
             catch {
                 Write-Host -ForegroundColor Red $_.Exception.Message

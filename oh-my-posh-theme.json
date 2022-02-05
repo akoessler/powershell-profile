@@ -57,7 +57,7 @@
           "type": "shell",
           "style": "diamond",
           "leading_diamond": "<transparent,background>\ue0b0</>",
-          "trailing_diamond": "",
+          "trailing_diamond": "\ue0b0",
           "foreground": "#ffffff",
           "background": "#008a2e",
           "background_templates": [

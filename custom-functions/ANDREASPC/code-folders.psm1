@@ -16,7 +16,7 @@ function dcode(
         $key = "dcode"
     }
     $location = ""
-    if ($mrsLocations.TryGetValue($key, [ref] $location)) {
+    if ($codeLocations.TryGetValue($key, [ref] $location)) {
         Set-LocationMultiplatform -Path $location
     }
 }

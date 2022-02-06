@@ -49,9 +49,15 @@ ExecuteTimed "Install PowerShell modules from gallery" Cyan {
     }
 }
 
+# cannot install PoShFuck and choco on linux/wsl
+if ($IsLinux) {
+    exit
+}
+
 ExecuteTimed "Install PowerShell modules from direct source" Cyan {
     $ModulesToInstall = @(
         "https://raw.githubusercontent.com/mattparkes/PoShFuck/master/Install-TheFucker.ps1"
+        "https://community.chocolatey.org/install.ps1"
     )
 
     foreach($ModuleToInstall in $ModulesToInstall) {
@@ -61,20 +67,6 @@ ExecuteTimed "Install PowerShell modules from direct source" Cyan {
         }
         Write-Host ""
     }
-}
-
-# cannot install choco on linux/wsl
-if ($IsLinux) {
-    exit
-}
-
-ExecuteTimed "Install chocolatey" Cyan {
-    $ChocoInstallUrl = "https://community.chocolatey.org/install.ps1"
-    Write-Host ""
-    ExecuteTimed "Install chocolatey $ChocoInstallUrl" DarkMagenta {
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($ChocoInstallUrl)) | Out-Host
-    }
-    Write-Host ""
 }
 
 ExecuteTimed "Install Chocolatey Modules" Cyan {

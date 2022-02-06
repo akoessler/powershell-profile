@@ -39,7 +39,6 @@ ExecuteTimed "Loading profile" Cyan $True {
             "PSColor"
             "Posh-SSH"
             "ZLocation"
-            "PoShFuck"
             "Chocolatey"
             "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
         )
@@ -47,6 +46,7 @@ ExecuteTimed "Loading profile" Cyan $True {
         if ($IsWindows) {
             $WindowsOnlyModules = @(
                 "posh-git"
+                "PoShFuck"
             )
             $ModulesToImport = $WindowsOnlyModules + $ModulesToImport
         }

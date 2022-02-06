@@ -62,6 +62,7 @@
           "background": "#7a7c0b",
           "background_templates": [
             "{{ if eq .Shell \"pwsh\" }}#477cda{{ end }}",
+            "{{ if eq .Shell \"powershell\" }}#ca1e1e{{ end }}",
             "{{ if eq .Shell \"bash\" }}#64686d{{ end }}",
             "{{ if eq .Shell \"zsh\" }}#008a2e{{ end }}",
             "{{ if eq .Shell \"cmd\" }}#e224e2{{ end }}"
@@ -137,7 +138,7 @@
           "foreground": "#000000",
           "background": "#ebcc34",
           "properties": {
-            "template": " \ufd31 {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+            "template": "{{if .Namespace}} \ufd31 {{.Context}} :: {{.User}} :: {{.Cluster}} {{.Namespace}}{{end}} "
           }
         },
         {

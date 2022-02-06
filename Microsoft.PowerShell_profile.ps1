@@ -34,7 +34,6 @@ ExecuteTimed "Loading profile" Cyan $True {
     ExecuteTimed "Imports" DarkMagenta $True {
 
         $ModulesToImport = @(
-            "posh-git"
             "oh-my-posh"
             "Terminal-Icons"
             "PSColor"
@@ -44,6 +43,13 @@ ExecuteTimed "Loading profile" Cyan $True {
             "Chocolatey"
             "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
         )
+
+        if ($IsWindows) {
+            $WindowsOnlyModules = @(
+                "posh-git"
+            )
+            $ModulesToImport = $WindowsOnlyModules + $ModulesToImport
+        }
 
         foreach($ModuleToImport in $ModulesToImport) {
             ExecuteTimed ("Import " + $ModuleToImport) DarkGray $false {
@@ -83,8 +89,9 @@ ExecuteTimed "Loading profile" Cyan $True {
 
     ExecuteTimed "Load custom scripts" DarkMagenta $True {
 
+        $Hostname = [system.environment]::MachineName
         $CustomFunctionsScriptPath = "$ProfileScriptDir\custom-functions\"
-        $CustomFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$env:COMPUTERNAME"
+        $CustomFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$Hostname"
 
         if (Test-Path $customFunctionsScriptPathMachine) {
             $CustomFunctionsScripts = Get-ChildItem -File -Filter *.psm1 -Path $CustomFunctionsScriptPath,$CustomFunctionsScriptPathMachine

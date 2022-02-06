@@ -1,8 +1,24 @@
+$codeLocations = New-Object System.Collections.Generic.Dictionary"[String,String]"
 
-function dcode() {
-    Set-Location -Path "D:\Code"
+$codeLocations.Add("dcode", "d:\Code")
+
+$codeLocations.Add("gh", "d:\Code\github")
+$codeLocations.Add("github", "d:\Code\github")
+
+
+function dcode(
+    [String]
+    [Parameter(Mandatory = $false)]
+    $key
+)
+{
+    if ([string]::IsNullOrEmpty($key)) {
+        $key = "dcode"
+    }
+    $location = ""
+    if ($mrsLocations.TryGetValue($key, [ref] $location)) {
+        Set-LocationMultiplatform -Path $location
+    }
 }
 
-function dgithub() {
-    Set-Location -Path "D:\Code\github"
-}
+Export-ModuleMember -Function dcode

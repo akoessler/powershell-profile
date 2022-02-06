@@ -59,10 +59,12 @@
           "leading_diamond": "<transparent,background>\ue0b0</>",
           "trailing_diamond": "\ue0b0",
           "foreground": "#ffffff",
-          "background": "#008a2e",
+          "background": "#7a7c0b",
           "background_templates": [
             "{{ if eq .Shell \"pwsh\" }}#477cda{{ end }}",
-            "{{ if eq .Shell \"bash\" }}#293036{{ end }}"
+            "{{ if eq .Shell \"bash\" }}#64686d{{ end }}",
+            "{{ if eq .Shell \"zsh\" }}#008a2e{{ end }}",
+            "{{ if eq .Shell \"cmd\" }}#e224e2{{ end }}"
           ],
           "properties": {
             "template": " {{ .Name }} "

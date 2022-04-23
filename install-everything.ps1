@@ -35,7 +35,6 @@ ExecuteTimed "Install PowerShell modules from gallery" Cyan {
         "ZLocation"
         "Posh-SSH"
         "posh-git"
-        "oh-my-posh"
         "Chocolatey"
         "ExchangeOnlineManagement"
     )
@@ -80,6 +79,7 @@ ExecuteTimed "Install Chocolatey Modules" Cyan {
         "python3"
         "wget"
         "gh"
+        "oh-my-posh"
     )
 
     foreach($ModuleToInstall in $ModulesToInstall) {

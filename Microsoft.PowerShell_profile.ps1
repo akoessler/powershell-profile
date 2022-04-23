@@ -34,7 +34,6 @@ ExecuteTimed "Loading profile" Cyan $True {
     ExecuteTimed "Imports" DarkMagenta $True {
 
         $ModulesToImport = @(
-            "oh-my-posh"
             "Terminal-Icons"
             "PSColor"
             "Posh-SSH"
@@ -68,7 +67,7 @@ ExecuteTimed "Loading profile" Cyan $True {
         }
 
         ExecuteTimed "Load oh-my-posh" DarkGray $false {
-            Set-PoshPrompt -Theme $ProfileScriptDir\oh-my-posh-theme.json
+            oh-my-posh init pwsh --config $ProfileScriptDir\oh-my-posh-theme.json | Invoke-Expression
         }
 
         ExecuteTimed "Load PSReadLine" DarkGray $false {

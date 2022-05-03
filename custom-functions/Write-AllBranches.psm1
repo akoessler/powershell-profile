@@ -1,6 +1,9 @@
 
 function __LoopSubfolders_printbranches([String] $Directory, [Int32] $MaxNestingLevel, [Int32] $NestingLevel)
 {
+    $MasterBranches = ("master", "main")
+    $AllowedBranches = ("develop", "stable", "release-test")
+
     Set-Location $Directory
     Get-ChildItem -Path $Directory -Directory | ForEach-Object {
         $gitfolder = Join-Path -Path $_.FullName -ChildPath ".git"
@@ -10,15 +13,19 @@ function __LoopSubfolders_printbranches([String] $Directory, [Int32] $MaxNesting
             Write-Host "> " $_.FullName
 
             $GitCommand = "git branch --show-current"
-            Invoke-Expression $GitCommand | Tee-Object -Variable BranchName
+            Invoke-Expression $GitCommand | Tee-Object -Variable BranchName | out-null
 
-            if ($BranchName -eq "master" || $BranchName -eq "main")
+            if ($MasterBranches.Contains($BranchName))
             {
-                Write-Host "- ok" -ForegroundColor Green
+                Write-Host ("- ok:  " + $BranchName) -ForegroundColor Green
+            }
+            elseif ($AllowedBranches.Contains($BranchName))
+            {
+                Write-Host ("- ok:  " + $BranchName) -ForegroundColor Yellow
             }
             else
             {
-                Write-Host ("- not master: " + $BranchName) -ForegroundColor Magenta
+                Write-Host ("- not master:  " + $BranchName) -ForegroundColor Magenta
             }
         }
         elseif ($NestingLevel -le $MaxNestingLevel)

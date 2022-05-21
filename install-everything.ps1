@@ -61,40 +61,54 @@ ExecuteTimed "Install PowerShell modules from direct source" Cyan {
 
     foreach($ModuleToInstall in $ModulesToInstall) {
         Write-Host ""
-        ExecuteTimed "Install Module $ModuleToInstall" DarkMagenta {
+        ExecuteTimed "Install module $ModuleToInstall" DarkMagenta {
             Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($ModuleToInstall)) | Out-Host
         }
         Write-Host ""
     }
 }
 
-ExecuteTimed "Install Chocolatey Modules" Cyan {
+ExecuteTimed "Install winget modules" Cyan {
     $ModulesToInstall = @(
-        "choco-upgrade-all-at-startup"
-        "sudo"
-        "bat"
-        "less"
-        "dart-sdk"
-        "python"
-        "python3"
-        "wget"
-        "gh"
+        "GitHub.cli"
+        "GitHub.GitHubDesktop"
         "oh-my-posh"
+        "gerardog.gsudo"
+        "GnuWin32.Wget"
+        "Python.Python.2"
+        "Python.Python.3"
     )
 
     foreach($ModuleToInstall in $ModulesToInstall) {
         Write-Host ""
-        ExecuteTimed "Install ChocolateyModule $ModuleToInstall" DarkMagenta {
+        ExecuteTimed "Install winget module $ModuleToInstall" DarkMagenta {
+            winget install $ModuleToInstall --accept-package-agreements | Out-Host
+        }
+        Write-Host ""
+    }
+}
+
+ExecuteTimed "Install chocolatey modules" Cyan {
+    $ModulesToInstall = @(
+        "choco-upgrade-all-at-startup"
+        "bat"
+        "less"
+        "dart-sdk"
+    )
+
+    foreach($ModuleToInstall in $ModulesToInstall) {
+        Write-Host ""
+        ExecuteTimed "Install chocolatey module $ModuleToInstall" DarkMagenta {
             choco install $ModuleToInstall -y -v | Out-Host
         }
         Write-Host ""
     }
 }
 
-ExecuteTimed "Update Chocolatey" DarkMagenta {
+ExecuteTimed "Update chocolatey" DarkMagenta {
     choco upgrade chocolatey -y -v | Out-Host
 }
 
-ExecuteTimed "Update All Chocolatey Modules" DarkMagenta {
+ExecuteTimed "Update all chocolatey modules" DarkMagenta {
     choco upgrade all -y -v | Out-Host
 }

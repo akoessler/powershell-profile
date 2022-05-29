@@ -80,6 +80,14 @@
           "type": "dart"
         },
         {
+          "background": "#06a4ce",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue28e {{ .Full }} ",
+          "type": "flutter"
+        },
+        {
           "background": "#00ffff",
           "foreground": "#000000",
           "powerline_symbol": "\ue0b0",

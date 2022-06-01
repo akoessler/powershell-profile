@@ -1,6 +1,6 @@
 function Update-AllModules() {
     $installedModules = Get-InstalledModule
-    $userDocumentsPath = [environment]::getfolderpath(“mydocuments”)
+    $userDocumentsPath = [environment]::GetFolderPath("mydocuments")
     $userDocumentsPattern = [Regex]::Escape($userDocumentsPath)
 
     foreach ($installedModule in $installedModules) {
@@ -9,10 +9,16 @@ function Update-AllModules() {
         $currentVersion = $installedModule.Version
 
         $isPrerelease = $currentVersion -Match "-"
-        $releaseInfo = $isPrerelease ? "prerelease" : "stable"
+        $releaseInfo = "stable"
+        if ($isPrerelease) {
+            $releaseInfo = "prerelease"
+        }
 
         $isUserScope = $modulePath -Match "C:\\Users\\" -or $modulePath -Match $userDocumentsPattern
-        $targetScope = $isUserScope ? "CurrentUser" : "AllUsers"
+        $targetScope = "AllUsers"
+        if ($isUserScope) {
+            $targetScope = "CurrentUser"
+        }
 
         Write-Host -ForegroundColor White "Check module $moduleName - installed: $currentVersion ($releaseInfo, $targetScope) ... $modulePath"
 

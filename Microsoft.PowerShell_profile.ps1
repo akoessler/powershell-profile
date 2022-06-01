@@ -69,12 +69,14 @@ if ($host.Name -eq 'ConsoleHost') {
     Import-Module PSReadLine
     Set-PSReadLineOption -EditMode Windows
     Set-PSReadLineOption -PredictionSource History
-    Set-PSReadLineOption -PredictionViewStyle ListView
+    if ($PSVersionTable.PSEdition -eq 'Core') {
+        Set-PSReadLineOption -PredictionViewStyle ListView
+    }
     Set-PSReadLineOption -HistorySearchCursorMovesToEnd
     Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -Function HistorySearchBackward
     Set-PSReadLineKeyHandler -Key Ctrl+DownArrow -Function HistorySearchForward
 } else {
-    Write-Host " - skipped" - -ForegroundColor DarkGray -NoNewline
+    Write-Host " - skipped" -ForegroundColor DarkGray -NoNewline
 }
 End
 

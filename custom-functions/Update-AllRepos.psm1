@@ -53,7 +53,7 @@ function __LoopSubfolders_updaterepos([String] $Directory, [Boolean] $CheckoutDe
         {
             Write-Verbose -Message ("- " + $_.Name + ": not a repo => check subfolders")
             $NextNestingLevel = $NestingLevel + 1
-            __LoopSubfolders_updaterepos $_.FullName $MaxNestingLevel $NextNestingLevel
+            __LoopSubfolders_updaterepos $_.FullName $CheckoutDefaultBranch $MaxNestingLevel $NextNestingLevel
         }
         else
         {

@@ -3,3 +3,4 @@
 [Ss]cripts/
 [Hh]elp/
 powershell.config.json
+*.bak

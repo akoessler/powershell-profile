@@ -4,16 +4,16 @@
     "actions": 
     [
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
         },
         {
             "command": "find",
@@ -36,9 +36,6 @@
     "initialCols": 150,
     "initialPosition": "100,100",
     "initialRows": 60,
-    "startOnUserLogin": true,
-    "theme": "system",
-    "windowingBehavior": "useAnyExisting",
     "profiles": 
     {
         "defaults": 
@@ -54,90 +51,80 @@
         "list": 
         [
             {
-                "name": "PowerShell Core 7",
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "source": "Windows.Terminal.PowershellCore",
-                "tabColor": "#477CDA",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\powershell.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell Core 7",
+                "source": "Windows.Terminal.PowershellCore",
+                "tabColor": "#477CDA"
             },
             {
-                "name": "Ubuntu",
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
+                "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "tabColor": "#DD4814",
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "tabColor": "#DD4814"
             },
             {
-                "name": "Ubuntu - pwsh",
-                "guid": "{99477c18-f5c9-4502-a3ef-fbf1cb96cdfa}",
-                "hidden": false,
-                "commandline": "wsl -d ubuntu -- pwsh",
-                "tabColor": "#DD4814",
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
-            },
-            {
-                "name": "Git Bash",
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
-                "source": "Git",
-                "startingDirectory": "D:\\Code",
-                "tabColor": "#F54D27",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\git.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git",
+                "startingDirectory": "D:\\Code",
+                "tabColor": "#F54D27"
             },
             {
-                "name": "Exchange Online PowerShell",
-                "commandline": "pwsh -noexit -command \"%OneDrive%\\Programs\\Outlook\\connect-exchange-online.ps1\"",
-                "guid": "{73fd70af-e8ac-456e-ab8a-e83eb5b2594b}",
-                "hidden": false,
-                "suppressApplicationTitle": true,
-                "tabColor": "#0078D4",
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command Connect-ExchangeAkoessler",
+                "guid": "{73fd70af-e8ac-456e-ab8a-e83eb5b2594b}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
+                "name": "Exchange Online PowerShell",
+                "suppressApplicationTitle": true,
+                "startingDirectory": "~",
+                "tabColor": "#0078D4"
             },
             {
-                "name": "Raspberry PI (SSH)",
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
                 "commandline": "pwsh -noexit -command \"ssh pi@raspberrypi\"",
                 "guid": "{d671b703-c7b4-41bd-891c-0b35e4c9de18}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
-                "tabColor": "#C31C4A",
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "name": "Raspberry PI (SSH)",
+                "tabColor": "#C31C4A"
             },
             {
-                "name": "CMD",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "startingDirectory": "D:\\Code",
-                "tabColor": "#000000",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "CMD",
+                "startingDirectory": "D:\\Code",
+                "tabColor": "#000000"
             },
             {
+                "backgroundImage": "%OneDrive%\\Programs\\Terminal\\BackgroundImages\\visualstudio.png",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
                 "guid": "{7e6bdc33-5d23-52d0-92e8-b6fd0fab5714}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio",
-                "startingDirectory": "D:\\Code",
-                "backgroundImage": "%OneDrive%\\Programs\\Terminal\\BackgroundImages\\visualstudio.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "startingDirectory": "D:\\Code"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -167,6 +154,12 @@
                 "hidden": true,
                 "name": "Developer PowerShell for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
             }
         ]
     },
@@ -402,5 +395,8 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "startOnUserLogin": false,
+    "theme": "system",
+    "windowingBehavior": "useAnyExisting"
 }

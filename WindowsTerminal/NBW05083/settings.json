@@ -35,14 +35,10 @@
     "initialCols": 150,
     "initialPosition": "50,50",
     "initialRows": 45,
-    "startOnUserLogin": true,
-    "theme": "system",
-    "windowingBehavior": "useAnyExisting",
     "profiles": 
     {
         "defaults": 
         {
-            "experimental.useAtlasEngine": true,
             "font": 
             {
                 "face": "CaskaydiaCove NF Mono"
@@ -53,75 +49,72 @@
         "list": 
         [
             {
-                "name": "PowerShell Core 7",
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#477CDA",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\powershell.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell Core 7",
+                "source": "Windows.Terminal.PowershellCore",
+                "startingDirectory": "D:\\dev\\e3\\master",
+                "tabColor": "#477CDA"
             },
             {
-                "name": "Ubuntu",
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
+                "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#DD4814",
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "tabColor": "#DD4814"
             },
             {
-                "name": "Ubuntu - pwsh",
-                "guid": "{af3eef8b-4f19-4f3d-a89b-90a933db1bd2}",
-                "hidden": false,
-                "commandline": "wsl -d ubuntu -- pwsh",
-                "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#DD4814",
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
-            },
-            {
-                "name": "Git Bash",
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
-                "source": "Git",
-                "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#F54D27",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\git.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git",
+                "startingDirectory": "D:\\dev\\e3\\master",
+                "tabColor": "#F54D27"
             },
             {
-                "name": "CMD",
-                "commandline": "cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#000000",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "CMD",
+                "startingDirectory": "D:\\dev\\e3\\master",
+                "tabColor": "#000000"
             },
             {
-                "name": "Developer PowerShell for VS 2022 [Preview]",
-                "guid": "{0dfc77c2-a32b-5f4e-a936-003b4dded5c7}",
-                "hidden": false,
-                "source": "Windows.Terminal.VisualStudio",
-                "startingDirectory": "D:\\dev\\e3\\master",
-                "tabColor": "#A478DB",
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\visualstudio.png",
                 "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none"
+                "backgroundImageStretchMode": "none",
+                "guid": "{72e7f09e-a95e-511b-ba6c-1fadaf2f403f}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio",
+                "startingDirectory": "D:\\dev\\e3\\master",
+                "tabColor": "#A478DB"
             },
             {
-                "commandline": "powershell.exe",
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\visualstudio.png",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
+                "guid": "{14aa84d7-3159-5742-bf7c-999e4f0d375b}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio",
+                "startingDirectory": "D:\\dev\\e3\\master",
+                "tabColor": "#A478DB"
+            },
+            {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell 5"
@@ -131,12 +124,6 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{32bedf72-ed53-5f1f-8b6a-d9710e341f9c}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2022 [Preview]",
-                "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{2eff8e45-cb87-53b3-a25c-80f5c8dfa170}",
@@ -361,5 +348,8 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "startOnUserLogin": true,
+    "theme": "system",
+    "windowingBehavior": "useAnyExisting"
 }

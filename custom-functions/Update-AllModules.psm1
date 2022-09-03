@@ -47,3 +47,5 @@ function Update-AllModules() {
         }
     }
 }
+
+Export-ModuleMember -Function Update-AllModules

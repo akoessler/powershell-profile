@@ -4,6 +4,8 @@ $exchangeOnlineDomainInternal = "@akoessler.onmicrosoft.com"
 $mainMailboxName = "andreas"
 $mainMailboxAddress = "${mainMailboxName}${exchangeOnlineDomainExternal}"
 
+$groupDisplayName = "Andreas Kössler"
+
 $groupFormatProperties = @("Name", "Alias", "DisplayName", "RecipientType", "Managedby", "GrantSendOnBehalfTo", "RequireSenderAuthenticationEnabled", "WindowsEmailAddress", "PrimarySmtpAddress", "EmailAddresses")
 $memberFormatProperties = @("Id", "Name", "DisplayName", "PrimarySmtpAddress")
 $permissionFormatProperties = @("Identity", "Trustee", "AccessControlType", "AccessRights", "IsValid")
@@ -96,7 +98,7 @@ function New-ExchangeGroup([String] $newGroupName)
     Write-Host "Create group ..." -ForegroundColor DarkYellow
     Write-Host ""
 
-    New-DistributionGroup -Name "$newGroupName" -DisplayName "$newGroupName" -Alias "$newGroupName" -ManagedBy "$mainMailboxAddress" -CopyOwnerToMember -Verbose
+    New-DistributionGroup -Name "$newGroupName" -DisplayName "$groupDisplayName" -Alias "$newGroupName" -ManagedBy "$mainMailboxAddress" -CopyOwnerToMember -Verbose
 
     Write-Host ""
     Write-Host "...done" -ForegroundColor Cyan

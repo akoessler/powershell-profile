@@ -44,6 +44,8 @@ function mrs(
     $location = ""
     if ($mrsLocations.TryGetValue($key, [ref] $location)) {
         Set-LocationMultiplatform -Path $location
+    } else {
+        Write-Host "no location found for key: $key" -ForegroundColor Red
     }
 }
 

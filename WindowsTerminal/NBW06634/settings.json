@@ -83,6 +83,18 @@
                 "tabColor": "#F54D27"
             },
             {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\Cygwin.ico",
+                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "C:\\Cygwin64\\bin\\bash.exe",
+                "guid": "{dccd8273-f63d-4334-a96d-5165fba320df}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\Cygwin-Terminal.ico",
+                "name": "Cygwin",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
+                "tabColor": "#30cc3d"
+            },
+            {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageStretchMode": "none",
@@ -126,14 +138,20 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{2eff8e45-cb87-53b3-a25c-80f5c8dfa170}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2017",
+                "guid": "{e607a308-2c8c-5829-9ab8-52c6449a4a83}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{afd61ebf-bea7-554e-a755-95a81830eecc}",
-                "hidden": true,
+                "guid": "{2e783e69-ef72-5327-a88a-1cbbceb442c1}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{e6e77d0a-5f48-5390-bb0c-93001d7b56fa}",
+                "hidden": false,
                 "name": "Developer Command Prompt for VS 2017",
                 "source": "Windows.Terminal.VisualStudio"
             }

@@ -3,7 +3,7 @@ function private:Header([String] $Title) {
 }
 
 function private:Begin([String] $Title) {
-    Write-Host $Title -ForegroundColor Gray -NoNewline
+    Write-Host "  $Title" -ForegroundColor Gray -NoNewline
     $script:Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 }
 

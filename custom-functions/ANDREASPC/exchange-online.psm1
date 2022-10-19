@@ -1,6 +1,9 @@
 $exchangeOnlineDomainExternal = "@akoessler.com"
 $exchangeOnlineDomainInternal = "@akoessler.onmicrosoft.com"
 
+$adminMailboxName = "admin"
+$adminMailboxAddress = "${adminMailboxName}${exchangeOnlineDomainExternal}"
+
 $mainMailboxName = "andreas"
 $mainMailboxAddress = "${mainMailboxName}${exchangeOnlineDomainExternal}"
 
@@ -18,7 +21,7 @@ function Connect-ExchangeAkoessler()
     Write-Host "----------------------------------------"   -ForegroundColor Magenta
     Write-Host ""
 
-    Connect-ExchangeOnline -UserPrincipalName "$mainMailboxAddress" -ShowProgress $true
+    Connect-ExchangeOnline -UserPrincipalName "$adminMailboxAddress" -ShowProgress $true
 
     Write-Host ""
     Write-Host "Connect successful" -ForegroundColor Green

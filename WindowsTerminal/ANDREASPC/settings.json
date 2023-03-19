@@ -40,19 +40,18 @@
     {
         "defaults": 
         {
-            "experimental.useAtlasEngine": true,
             "font": 
             {
                 "face": "CaskaydiaCove NF Mono"
             },
-            "opacity": 90,
+            "opacity": 80,
             "useAcrylic": true
         },
         "list": 
         [
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\powershell.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -62,7 +61,7 @@
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
@@ -73,7 +72,7 @@
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\git.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
@@ -84,31 +83,108 @@
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "commandline": "pwsh -noexit -command Connect-ExchangeAkoessler",
                 "guid": "{73fd70af-e8ac-456e-ab8a-e83eb5b2594b}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
                 "name": "Exchange Online PowerShell",
-                "suppressApplicationTitle": true,
                 "startingDirectory": "~",
+                "suppressApplicationTitle": true,
                 "tabColor": "#0078D4"
             },
             {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh administrator@nas.local.akoessler.com -p 2222\"",
+                "guid": "{7508e1dd-8193-4884-b121-9261ff090be1}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
+                "name": "Synology NAS (SSH)",
+                "tabColor": "#A7A5A6"
+            },
+            {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "commandline": "pwsh -noexit -command \"ssh pi@raspberrypi\"",
-                "guid": "{d671b703-c7b4-41bd-891c-0b35e4c9de18}",
+                "guid": "{d4030bc5-d1cf-4965-8619-9803716ac25e}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
                 "name": "Raspberry PI (SSH)",
                 "tabColor": "#C31C4A"
             },
             {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\proxmox.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh root@proxmox.local.akoessler.com\"",
+                "guid": "{e75654cb-630c-4968-a313-3472f02bb7e2}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\proxmox.png",
+                "name": "Proxmox (SSH)",
+                "tabColor": "#E57000"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@pihole.local.akoessler.com\"",
+                "guid": "{d671b703-c7b4-41bd-891c-0b35e4c9de18}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "name": "  - pihole (SSH)",
+                "tabColor": "#C31C4A"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\letsencrypt.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@cert.local.akoessler.com\"",
+                "guid": "{e49332f6-7f7a-40e0-bdd7-e388a35762b9}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\letsencrypt.png",
+                "name": "  - cert (SSH)",
+                "tabColor": "#c90ba9"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@git.local.akoessler.com\"",
+                "guid": "{7c390b87-d9dd-48c7-8149-cda0d7666b0c}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
+                "name": "  - Gitea (SSH)",
+                "tabColor": "#E57000"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@homeassistant.local.akoessler.com\"",
+                "guid": "{413e7ab0-f3f2-432b-a1f8-a48b52dc9b89}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
+                "name": "  - Homeassistant (SSH)",
+                "tabColor": "#40BDF5"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\docker.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@container.local.akoessler.com\"",
+                "guid": "{b7b64d57-2d55-4c2b-920b-b5d5847e01bc}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\docker.png",
+                "name": "  - Container (SSH)",
+                "tabColor": "#08489b"
+            },
+            {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -118,7 +194,7 @@
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\Terminal\\BackgroundImages\\visualstudio.png",
-                "backgroundImageAlignment": "bottomRight",
+                "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{7e6bdc33-5d23-52d0-92e8-b6fd0fab5714}",
                 "hidden": false,
@@ -160,6 +236,18 @@
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{f7511cec-8a58-5eff-b148-45ee57873fc1}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{cc7e34f9-7ff4-566d-b46a-edbecd0a3e67}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -398,5 +486,6 @@
     ],
     "startOnUserLogin": false,
     "theme": "system",
+    "themes": [],
     "windowingBehavior": "useAnyExisting"
 }

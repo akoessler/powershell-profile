@@ -41,7 +41,7 @@
         {
             "font": 
             {
-                "face": "CaskaydiaCove NF Mono"
+                "face": "CaskaydiaCove Nerd Font Mono"
             },
             "opacity": 90,
             "useAcrylic": true
@@ -81,18 +81,6 @@
                 "source": "Git",
                 "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
                 "tabColor": "#F54D27"
-            },
-            {
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\Cygwin.ico",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none",
-                "commandline": "C:\\Cygwin64\\bin\\bash.exe",
-                "guid": "{dccd8273-f63d-4334-a96d-5165fba320df}",
-                "hidden": false,
-                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\Cygwin-Terminal.ico",
-                "name": "Cygwin",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
-                "tabColor": "#30cc3d"
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",

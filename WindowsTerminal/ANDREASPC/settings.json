@@ -82,6 +82,12 @@
                 "tabColor": "#F54D27"
             },
             {
+                "guid": "{bf82abda-018b-4a2b-9f88-4fbe8ca668d3}",
+                "hidden": false,
+                "name": "----------",
+                "icon": ""
+            },
+            {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
@@ -95,6 +101,23 @@
                 "tabColor": "#0078D4"
             },
             {
+                "guid": "{3537adf7-875c-4e67-bf24-788fbdbaf6b6}",
+                "hidden": false,
+                "name": "----------",
+                "icon": ""
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\unifi.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh root@cloudkey.local.akoessler.com\"",
+                "guid": "{85bca508-079a-480e-854d-a3e4596cbbc6}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\unifi.png",
+                "name": "Cloudkey - SSH",
+                "tabColor": "#0044ff"
+            },
+            {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
@@ -102,7 +125,7 @@
                 "guid": "{7508e1dd-8193-4884-b121-9261ff090be1}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
-                "name": "Synology NAS (SSH)",
+                "name": "Synology NAS - SSH",
                 "tabColor": "#A7A5A6"
             },
             {
@@ -113,7 +136,7 @@
                 "guid": "{d4030bc5-d1cf-4965-8619-9803716ac25e}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
-                "name": "Raspberry PI (SSH)",
+                "name": "Raspberry PI - SSH",
                 "tabColor": "#C31C4A"
             },
             {
@@ -124,8 +147,14 @@
                 "guid": "{e75654cb-630c-4968-a313-3472f02bb7e2}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\proxmox.png",
-                "name": "Proxmox (SSH)",
+                "name": "Proxmox (NUC) - SSH",
                 "tabColor": "#E57000"
+            },
+            {
+                "guid": "{f5fe5b43-68e8-4fc1-9c79-9b2c8095192d}",
+                "hidden": false,
+                "name": "----------",
+                "icon": ""
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
@@ -135,7 +164,7 @@
                 "guid": "{d671b703-c7b4-41bd-891c-0b35e4c9de18}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
-                "name": "  - pihole (SSH)",
+                "name": "pihole - SSH",
                 "tabColor": "#C31C4A"
             },
             {
@@ -146,7 +175,7 @@
                 "guid": "{e49332f6-7f7a-40e0-bdd7-e388a35762b9}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\letsencrypt.png",
-                "name": "  - cert (SSH)",
+                "name": "cert - SSH",
                 "tabColor": "#c90ba9"
             },
             {
@@ -157,7 +186,7 @@
                 "guid": "{7c390b87-d9dd-48c7-8149-cda0d7666b0c}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
-                "name": "  - Gitea (SSH)",
+                "name": "Gitea - SSH",
                 "tabColor": "#E57000"
             },
             {
@@ -168,7 +197,7 @@
                 "guid": "{413e7ab0-f3f2-432b-a1f8-a48b52dc9b89}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
-                "name": "  - Homeassistant (SSH)",
+                "name": "Homeassistant - SSH",
                 "tabColor": "#40BDF5"
             },
             {
@@ -179,8 +208,25 @@
                 "guid": "{b7b64d57-2d55-4c2b-920b-b5d5847e01bc}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\docker.png",
-                "name": "  - Container (SSH)",
+                "name": "Container - SSH",
                 "tabColor": "#08489b"
+            },
+            {
+                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\mail.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@mail.local.akoessler.com\"",
+                "guid": "{9d392416-4944-48d5-9b53-372e748ce8c1}",
+                "hidden": false,
+                "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\mail.png",
+                "name": "Mail - SSH",
+                "tabColor": "#fff052"
+            },
+            {
+                "guid": "{a54755d3-8891-453a-8d25-914fe096f605}",
+                "hidden": false,
+                "name": "----------",
+                "icon": ""
             },
             {
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",

@@ -257,7 +257,7 @@
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@git.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@gitea.local.akoessler.com\"",
                 "guid": "{7c390b87-d9dd-48c7-8149-cda0d7666b0c}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
@@ -296,18 +296,6 @@
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\mail.png",
                 "name": "Mail - SSH",
                 "tabColor": "#FFF052"
-            },
-            {
-                "guid": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
-                "hidden": false,
-                "name": "Ubuntu 22.04.2 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }
         ]
     },

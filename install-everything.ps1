@@ -82,7 +82,7 @@ $ModulesToInstall = @(
 
 foreach($ModuleToInstall in $ModulesToInstall) {
     Begin "Install winget module $ModuleToInstall"
-    winget install $ModuleToInstall --accept-package-agreements | Out-Host
+    winget install $ModuleToInstall --accept-package-agreements --accept-source-agreements | Out-Host
     End
 }
 
@@ -92,7 +92,6 @@ $ModulesToInstall = @(
     "choco-upgrade-all-at-startup"
     "bat"
     "less"
-    "dart-sdk"
 )
 
 foreach($ModuleToInstall in $ModulesToInstall) {

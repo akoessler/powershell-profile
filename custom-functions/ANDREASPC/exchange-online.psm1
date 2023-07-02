@@ -28,6 +28,15 @@ function Connect-ExchangeAkoessler()
     Write-Host ""
 
     Get-ConnectionInformation
+
+    Write-Host ""
+    Write-Host "Available custom Exchange-Online commands:"
+    Write-Host "  - Get-ExchangeGroups"
+    Write-Host "  - Get-ExchangeGroupsDetails"
+    Write-Host "  - Get-ExchangeGroupDetails identity"
+    Write-Host "  - New-ExchangeGroup newGroupName"
+    Write-Host "  - Remove-ExchangeGroup groupNameToRemove"
+    Write-Host ""
 }
 
 function Get-ExchangeGroups()
@@ -88,8 +97,12 @@ function New-ExchangeGroup([String] $newGroupName)
 
 
     $recipient = Get-Recipient -Identity $newGroupName -ErrorAction SilentlyContinue
-    $recipient ??= Get-Recipient -Identity $newGroupAddressExternal -ErrorAction SilentlyContinue
-    $recipient ??= Get-Recipient -Identity $newGroupAddressInternal -ErrorAction SilentlyContinue
+    if ($null -eq $recipient) {
+        $recipient = Get-Recipient -Identity $newGroupAddressExternal -ErrorAction SilentlyContinue
+    }
+    if ($null -eq $recipient) {
+        $recipient = Get-Recipient -Identity $newGroupAddressInternal -ErrorAction SilentlyContinue
+    }
     if ($null -ne $recipient) {
         Write-Error "There is already a receiver for this alias:"
         Write-Output $recipient | Format-Table -Property $groupFormatProperties
@@ -150,8 +163,22 @@ function New-ExchangeGroup([String] $newGroupName)
     Get-ExchangeGroupDetails "$newGroupName"
 }
 
+function Remove-ExchangeGroup([String] $groupNameToRemove)
+{
+    Write-Host ""
+    Write-Host "Remove group ..." -ForegroundColor DarkYellow
+    Write-Host ""
+
+    Remove-DistributionGroup -Identity "$groupNameToRemove"
+
+    Write-Host ""
+    Write-Host "...done" -ForegroundColor Cyan
+    Write-Host ""
+}
+
 Export-ModuleMember -Function Connect-ExchangeAkoessler
 Export-ModuleMember -Function Get-ExchangeGroups
 Export-ModuleMember -Function Get-ExchangeGroupsDetails
 Export-ModuleMember -Function Get-ExchangeGroupDetails
 Export-ModuleMember -Function New-ExchangeGroup
+Export-ModuleMember -Function Remove-ExchangeGroup

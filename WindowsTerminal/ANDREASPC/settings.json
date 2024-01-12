@@ -268,7 +268,7 @@
                 "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@homeassistant.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"ssh akoessler@homeassistant.local.akoessler.com -m hmac-sha2-512-etm@openssh.com\"",
                 "guid": "{413e7ab0-f3f2-432b-a1f8-a48b52dc9b89}",
                 "hidden": false,
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",

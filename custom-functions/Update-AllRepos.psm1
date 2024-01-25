@@ -31,7 +31,7 @@ function __LoopSubfolders_updaterepos(
                 $DefaultBranchName = git config init.defaultBranch
                 if ([string]::IsNullOrEmpty($DefaultBranchName))
                 {
-                    $DefaultBranchName = "master"
+                    $DefaultBranchName = "main"
                 }
 
                 if ($BranchName -eq $DefaultBranchName)
@@ -115,7 +115,7 @@ function Update-AllReposAndCheckoutDefaultBranch([String] $Path)
 }
 
 Set-Alias -Name pullall -Value Update-AllRepos
-Set-Alias -Name pullallmaster -Value Update-AllReposAndCheckoutDefaultBranch
+Set-Alias -Name pullallmain -Value Update-AllReposAndCheckoutDefaultBranch
 
 Export-ModuleMember -Function Update-AllRepos -Alias pullall
-Export-ModuleMember -Function Update-AllReposAndCheckoutDefaultBranch -Alias pullallmaster
+Export-ModuleMember -Function Update-AllReposAndCheckoutDefaultBranch -Alias pullallmain

@@ -35,6 +35,12 @@
     "initialCols": 150,
     "initialPosition": "50,50",
     "initialRows": 45,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -56,7 +62,7 @@
                 "hidden": false,
                 "name": "PowerShell Core 7",
                 "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
                 "tabColor": "#477CDA"
             },
             {
@@ -68,7 +74,7 @@
                 "icon": "%OneDrive%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
                 "tabColor": "#DD4814"
             },
             {
@@ -79,7 +85,7 @@
                 "hidden": false,
                 "name": "Git Bash",
                 "source": "Git",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
                 "tabColor": "#F54D27"
             },
             {
@@ -89,30 +95,8 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "CMD",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
                 "tabColor": "#000000"
-            },
-            {
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\visualstudio.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none",
-                "guid": "{72e7f09e-a95e-511b-ba6c-1fadaf2f403f}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
-                "tabColor": "#A478DB"
-            },
-            {
-                "backgroundImage": "%OneDrive%\\Programs\\WindowsTerminal\\BackgroundImages\\visualstudio.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageStretchMode": "none",
-                "guid": "{14aa84d7-3159-5742-bf7c-999e4f0d375b}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio",
-                "startingDirectory": "C:\\dev\\e3\\eldis3\\master",
-                "tabColor": "#A478DB"
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -126,22 +110,20 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{e607a308-2c8c-5829-9ab8-52c6449a4a83}",
+                "commandline": "powershell.exe -NoExit -Command \"&{Import-Module \"\"\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\"\"\"; Enter-VsDevShell f9afa701 -SkipAutomaticLocation -DevCmdArguments \"\"\"-arch=x64 -host_arch=x64\"\"\"}\"",
+                "guid": "{e91f0c71-1c70-459d-9a18-13195a5ad5fd}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{2e783e69-ef72-5327-a88a-1cbbceb442c1}",
-                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
                 "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
             },
             {
-                "guid": "{e6e77d0a-5f48-5390-bb0c-93001d7b56fa}",
+                "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\Tools\\VsDevCmd.bat\" -startdir=none -arch=x64 -host_arch=x64",
+                "guid": "{0f04a624-f11c-48f3-8d47-cd797f1fce29}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2017",
-                "source": "Windows.Terminal.VisualStudio"
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "Developer Command Prompt for VS 2022",
+                "startingDirectory": "C:\\dev\\e3\\eldis3\\main",
             }
         ]
     },
@@ -332,6 +314,29 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -357,5 +362,50 @@
     ],
     "startOnUserLogin": true,
     "theme": "system",
+    "themes": 
+    [
+        {
+            "name": "legacyDark",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacyLight",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacySystem",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "system",
+                "useMica": false
+            }
+        }
+    ],
     "windowingBehavior": "useAnyExisting"
 }

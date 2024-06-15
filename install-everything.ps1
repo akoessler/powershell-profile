@@ -33,7 +33,6 @@ Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
 Header "Install PowerShell modules from gallery ..."
 
 $ModulesToInstall = @(
-    "PSColor"
     "PSReadLine"
     "PSScriptTools"
     "Terminal-Icons"

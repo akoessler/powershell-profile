@@ -19,7 +19,6 @@ Header "Import modules ..."
 
 $ModulesToImport = @(
     "Terminal-Icons"
-    "PSColor"
     "Posh-SSH"
     "ZLocation"
     "Chocolatey"

@@ -10,7 +10,8 @@ $mrsLocations.Add("system", "c:\dev\mrs\system")
 $mrsLocations.Add("test", "c:\dev\mrs\test")
 $mrsLocations.Add("tool", "c:\dev\mrs\tool")
 
-$mrsLocations.Add("config", "c:\dev\mrs\build\config")
+$mrsLocations.Add("build", "c:\dev\mrs\build\config")
+$mrsLocations.Add("cfg", "c:\dev\mrs\build\config")
 
 $mrsLocations.Add("adminapi", "c:\dev\mrs\api\admin-api")
 $mrsLocations.Add("authapi", "c:\dev\mrs\api\auth-api")
@@ -50,7 +51,7 @@ $mrsLocations.Add("staging", "c:\dev\mrs\portable\mrs-staging")
 $mrsLocations.Add("simulation", "C:\dev\mrs\test\ccs-simulation-app")
 $mrsLocations.Add("executablespec", "C:\dev\mrs\test\executable.spec-lib")
 $mrsLocations.Add("k6", "C:\dev\mrs\test\k6")
-$mrsLocations.Add("test", "C:\dev\mrs\test\test-app")
+$mrsLocations.Add("testapp", "C:\dev\mrs\test\test-app")
 $mrsLocations.Add("simulationapi", "C:\dev\mrs\test\ccs-simulation-api")
 
 $mrsLocations.Add("dependency", "c:\dev\mrs\tool\dependency-tool")

@@ -15,6 +15,7 @@ function private:End() {
 $ProfileScriptDir = $PSScriptRoot;
 $env:POSH_GIT_ENABLED = $true
 
+$script:StopwatchAll = [System.Diagnostics.Stopwatch]::StartNew()
 Header "Import modules ..."
 
 $ModulesToImport = @(
@@ -79,5 +80,7 @@ if ($host.Name -eq 'ConsoleHost') {
 }
 End
 
-Header "Finished."
+$script:StopwatchAll.Stop()
+Write-Host "Finished" -ForegroundColor Magenta -NoNewline
+Write-Host " - $($script:StopwatchAll.ElapsedMilliseconds)ms" -ForegroundColor DarkGreen
 Write-Host ""

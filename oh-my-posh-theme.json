@@ -232,11 +232,22 @@
           "type": "rust"
         },
         {
-          "type": "upgrade",
+          "background": "transparent",
+          "foreground": "transparent",
           "style": "diamond",
-          "leading_diamond": "\ue0b0",
-          "foreground": "#111111",
-          "background": "#ee3841",
+          "trailing_diamond": "\ue0b0",
+          "type": "text",
+          "template": "&nbsp;",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "upgrade",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#193549",
+          "background": "#db2b2b",
           "template": " \udb80\uddda {{ .Current }} => {{ .Latest }} "
         }
       ],

@@ -1,0 +1,5 @@
+"code"     "D:\Code"
+"dcode"     "D:\Code"
+
+"gh"        "D:\Code\github"
+"github"    "D:\Code\github"

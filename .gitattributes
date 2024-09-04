@@ -1,2 +1,4 @@
-.bashrc        text eol=lf
-.bashcolors    text eol=lf
+.bashrc             text eol=lf
+.bashcolors         text eol=lf
+*.sh                text eol=lf
+code-folders.txt    text eol=lf

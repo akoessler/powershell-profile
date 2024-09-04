@@ -1,0 +1,24 @@
+"mrs"           "C:\dev\mrs"
+
+"backend"       "C:\dev\mrs\backend"
+"k6"            "C:\dev\mrs\backend\test\k6"
+"dependency"    "c:\dev\mrs\backend\tool\dependency-tool"
+
+"clients"       "C:\dev\mrs\api-clients"
+"api-clients"   "C:\dev\mrs\api-clients"
+"example"       "C:\dev\mrs\api-clients\api\portable-api\dart\mrs_portable_api\example"
+
+"charts"        "C:\dev\mrs\charts"
+
+"portable"      "C:\dev\mrs\portable\mrs-portable"
+
+"app"           "C:\dev\mrs\app"
+"landing"       "C:\dev\mrs\app\landing-web"
+"admin"         "C:\dev\mrs\app\admin.web-app"
+"console"       "C:\dev\mrs\app\console-app"
+
+"systems"       "C:\dev\mrs\systems"
+"dev"           "C:\dev\mrs\systems\mrs-dev"
+"dev2"          "C:\dev\mrs\systems\mrs-dev2"
+"dev3"          "C:\dev\mrs\systems\mrs-dev3"
+"staging"       "C:\dev\mrs\systems\mrs-staging"

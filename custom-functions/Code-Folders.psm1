@@ -37,4 +37,6 @@ function Set-CodeFolder(
     }
 }
 
+Set-Alias -Name g -Value Set-CodeFolder
+
 Export-ModuleMember -Function Set-CodeFolder -Alias g

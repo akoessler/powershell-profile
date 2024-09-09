@@ -269,5 +269,6 @@
   ],
   "console_title_template": "{{if .Root}}ADMIN: {{end}}{{.Folder}} ({{.Shell}})",
   "final_space": true,
-  "version": 2
+  "version": 2,
+  "auto_upgrade": true
 }

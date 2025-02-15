@@ -61,6 +61,7 @@
           "style": "diamond",
           "background_templates": [
             "{{ if eq .OS \"windows\" }}#025da3{{ end }}",
+            "{{ if eq .OS \"debian\" }}#ce0056{{ end }}",
             "{{ if eq .OS \"ubuntu\" }}#dd4814{{ end }}",
             "{{ if eq .OS \"raspbian\" }}#c31c4a{{ end }}",
             "{{ if eq .OS \"linux\" }}#da1717{{ end }}"

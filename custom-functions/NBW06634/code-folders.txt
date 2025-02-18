@@ -10,6 +10,10 @@
 
 "charts"        "C:\dev\mrs\charts"
 
+"resqnect-apps" "C:\dev\mrs\resqnect-apps"
+"resqnect"      "C:\dev\mrs\resqnect-apps"
+"apps"          "C:\dev\mrs\resqnect-apps"
+
 "portable"      "C:\dev\mrs\portable\mrs-portable"
 
 "app"           "C:\dev\mrs\app"

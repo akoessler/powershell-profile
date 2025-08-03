@@ -12,10 +12,6 @@ echo_light_purple "Init bash ..."
 echo "  POWERSHELL_PROFILE_DIR=$POWERSHELL_PROFILE_DIR"
 
 
-echo "  Init oh-my-posh"
-eval "$(oh-my-posh init bash --config $POWERSHELL_PROFILE_DIR/oh-my-posh-theme.json)"
-
-
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
     . $POWERSHELL_PROFILE_DIR/WindowsTerminal/wsl.sh
 fi
@@ -23,6 +19,12 @@ fi
 if [[ "$MSYSTEM" = "MINGW64" ]]; then
     . $POWERSHELL_PROFILE_DIR/WindowsTerminal/gitbash.sh
 fi
+
+
+echo_light_purple "Init tools ..."
+
+echo "  Init oh-my-posh"
+eval "$(oh-my-posh init bash --config $POWERSHELL_PROFILE_DIR/oh-my-posh-theme.json)"
 
 
 echo_light_purple "Init host specific ..."

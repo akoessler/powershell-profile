@@ -57,7 +57,7 @@ if ($IsLinux) {
 Header "Install PowerShell modules from direct source ..."
 
 $ModulesToInstall = @(
-        "https://community.chocolatey.org/install.ps1"
+    "https://community.chocolatey.org/install.ps1"
 )
 
 foreach($ModuleToInstall in $ModulesToInstall) {
@@ -71,7 +71,7 @@ Header "Install winget modules ..."
 $ModulesToInstall = @(
     "GitHub.cli"
     "GitHub.GitHubDesktop"
-    "oh-my-posh"
+    "JanDeDobbeleer.OhMyPosh"
     "gerardog.gsudo"
     "GnuWin32.Wget"
     "Python.Python.2"

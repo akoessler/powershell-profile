@@ -57,8 +57,7 @@ if ($IsLinux) {
 Header "Install PowerShell modules from direct source ..."
 
 $ModulesToInstall = @(
-    "https://raw.githubusercontent.com/mattparkes/PoShFuck/master/Install-TheFucker.ps1"
-    "https://community.chocolatey.org/install.ps1"
+        "https://community.chocolatey.org/install.ps1"
 )
 
 foreach($ModuleToInstall in $ModulesToInstall) {

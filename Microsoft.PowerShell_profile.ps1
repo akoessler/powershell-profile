@@ -29,7 +29,6 @@ $ModulesToImport = @(
 if ($IsWindows) {
     $WindowsOnlyModules = @(
         "posh-git"
-        "PoShFuck"
     )
     $ModulesToImport = $WindowsOnlyModules + $ModulesToImport
 }

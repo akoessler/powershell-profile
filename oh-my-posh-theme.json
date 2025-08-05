@@ -54,7 +54,7 @@
       "segments": [
         {
           "leading_diamond": "\ue0b6",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}  ",
+          "template": " {{ if .WSL }}WSL {{ end }}{{.Icon}}  ",
           "foreground": "#eeeeee",
           "background": "#546e7a",
           "type": "os",
@@ -68,7 +68,15 @@
           ]
         },
         {
-          "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}{{ if .SSHSession }}@{{ .HostName }}{{ end }} ",
+          "template": " {{ .HostName }} ",
+          "foreground": "#eeeeee",
+          "powerline_symbol": "\ue0b0",
+          "background": "#25566d",
+          "type": "session",
+          "style": "powerline"
+        },
+        {
+          "template": " {{ if .SSHSession }}[SSH] {{ end }}{{ .UserName }} ",
           "foreground": "#eeeeee",
           "powerline_symbol": "\ue0b0",
           "background": "#546e7a",

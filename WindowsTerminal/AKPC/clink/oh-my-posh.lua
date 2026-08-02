@@ -2,4 +2,4 @@
 -- e.g.: C:\Users\akoes\AppData\Local\clink
 -- put this file there
 
-load(io.popen('oh-my-posh init cmd --config="D:/OneDrive/Documents/PowerShell/oh-my-posh-theme.json"'):read("*a"))()
+load(io.popen('oh-my-posh init cmd --config="D:/Nextcloud/Documents/PowerShell/oh-my-posh-theme.json"'):read("*a"))()

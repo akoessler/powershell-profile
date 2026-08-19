@@ -127,19 +127,6 @@
                 "name": "----------"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
-                "backgroundImageAlignment": "topRight",
-                "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command Connect-ExchangeAkoessler",
-                "guid": "{73fd70af-e8ac-456e-ab8a-e83eb5b2594b}",
-                "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\exchange.png",
-                "name": "Exchange Online PowerShell",
-                "startingDirectory": "~",
-                "suppressApplicationTitle": true,
-                "tabColor": "#0078D4"
-            },
-            {
                 "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\azure.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",

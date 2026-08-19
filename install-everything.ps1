@@ -40,7 +40,6 @@ $ModulesToInstall = @(
     "Posh-SSH"
     "posh-git"
     "Chocolatey"
-    "ExchangeOnlineManagement"
 )
 
 foreach($ModuleToInstall in $ModulesToInstall) {

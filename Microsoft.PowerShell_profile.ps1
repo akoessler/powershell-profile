@@ -22,13 +22,13 @@ $ModulesToImport = @(
     "Terminal-Icons"
     "Posh-SSH"
     "ZLocation"
-    "Chocolatey"
-    "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 )
 
 if ($IsWindows) {
     $WindowsOnlyModules = @(
         "posh-git"
+        "Chocolatey"
+        "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
     )
     $ModulesToImport = $WindowsOnlyModules + $ModulesToImport
 }
@@ -42,8 +42,8 @@ foreach($ModuleToImport in $ModulesToImport) {
 Header "Load custom scripts ..."
 
 $Hostname = [system.environment]::MachineName
-$CustomFunctionsScriptPath = "$ProfileScriptDir\custom-functions\"
-$CustomFunctionsScriptPathMachine = "$ProfileScriptDir\custom-functions\$Hostname"
+$CustomFunctionsScriptPath = "$ProfileScriptDir/custom-functions/"
+$CustomFunctionsScriptPathMachine = "$ProfileScriptDir/custom-functions/$Hostname"
 
 if (Test-Path $customFunctionsScriptPathMachine) {
     $CustomFunctionsScripts = Get-ChildItem -File -Filter *.psm1 -Path $CustomFunctionsScriptPath,$CustomFunctionsScriptPathMachine
@@ -60,7 +60,7 @@ foreach($CustomFunctionScript in $CustomFunctionsScripts) {
 Header "Load special tools ..."
 
 Begin "Load oh-my-posh"
-oh-my-posh init pwsh --config $ProfileScriptDir\oh-my-posh-theme.json | Invoke-Expression
+oh-my-posh init pwsh --config $ProfileScriptDir/oh-my-posh-theme.json | Invoke-Expression
 End
 
 Begin "Load PSReadLine"

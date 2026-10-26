@@ -5,9 +5,9 @@ function update-powershell() {
     cache_parent="${XDG_CACHE_HOME:-$HOME/.cache}/powershell-deb"
     arch="$(dpkg --print-architecture)"
 
-    if [ "$arch" != "amd64" ]; then
-        printf 'This helper expects amd64, but this system reports %s.\n' "$arch" >&2
-        exit 1
+    if [ "$arch" != "amd64" ] && [ "$arch" != "arm64" ]; then
+        printf 'This helper expects amd64 or arm64, but this system reports %s.\n' "$arch" >&2
+        return 1
     fi
 
     mkdir -p "$cache_parent"
@@ -16,7 +16,7 @@ function update-powershell() {
 
     release_json="$(curl -fsSL "$repo_api")"
     version="$(printf '%s' "$release_json" | python3 -c 'import json, sys; print(json.load(sys.stdin)["tag_name"].lstrip("v"))')"
-    deb_name="powershell_${version}-1.deb_amd64.deb"
+    deb_name="powershell_${version}-1.deb_${arch}.deb"
     base_url="https://github.com/PowerShell/PowerShell/releases/download/v${version}"
     deb_url="${base_url}/${deb_name}"
     hash_url="${base_url}/hashes.sha256"

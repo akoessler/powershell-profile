@@ -3,8 +3,8 @@
 
 ##### Commands
 
-### set root password
-# sudo passwd root
+### set root password to allow su
+sudo passwd root
 
 ### get manually installed packages:
 # apt list --manual-installed | sed 's/\// /' | awk '{print $1}'
@@ -12,6 +12,7 @@
 
 ##### install packages
 
+sudo apt update
 sudo apt install -y \
     apt-transport-https base-files base-passwd bat bash bsdutils build-essential buildah btop \
     ca-certificates clang cmake curl daemonize dash dbus-user-session diffutils file findutils \
@@ -74,6 +75,7 @@ java -version
 
 # vscode
 # https://code.visualstudio.com/docs/setup/linux
+
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
 sudo tee /etc/apt/sources.list.d/vscode.sources > /dev/null <<EOF
 Types: deb
@@ -89,6 +91,7 @@ sudo apt install -y code
 
 # nvm
 # https://github.com/nvm-sh/nvm#git-install
+
 export NVM_DIR="$HOME/.nvm" && (
   git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
   cd "$NVM_DIR"
@@ -113,23 +116,17 @@ trivy --version
 # https://helm.sh/docs/intro/install/
 
 HELM_BUILDKITE_APT_KEY_ID="DDF78C3E6EBB2D2CC223C95C62BA89D07698DBC6"
-
 sudo apt-get install curl gpg --yes
-
 curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey > "${TMPDIR:-/tmp}/helm.asc"
-
 # Ensure that the key ID matches to prevent a repository compromise from establishing an attacker controlled key
 if [ "$(gpg --import --import-options=show-only --with-colons "${TMPDIR:-/tmp}/helm.asc" \
         | awk -F: '$1 == "fpr" {print $10}' | head -n 1)" != "${HELM_BUILDKITE_APT_KEY_ID}" ]; then
     echo "ERROR: Unexpected Helm APT key ID: potential key compromise"
     exit 1
 fi
-
 # Remove configuration left by earlier versions of these instructions
 sudo rm -f /etc/apt/sources.list.d/helm-stable-debian.list /usr/share/keyrings/helm.gpg
-
 sudo install -m 0644 -Dt /etc/apt/keyrings/ "${TMPDIR:-/tmp}/helm.asc"
-
 sudo tee /etc/apt/sources.list.d/helm-stable-debian.sources > /dev/null <<EOF
 Types: deb
 URIs: https://packages.buildkite.com/helm-linux/helm-debian/any/
@@ -137,7 +134,6 @@ Suites: any
 Components: main
 Signed-By: /etc/apt/keyrings/helm.asc
 EOF
-
 sudo apt-get update
 sudo apt-get install helm
 helm version
@@ -159,5 +155,4 @@ kubectl version --client
 # https://k9scli.io/topics/install/
 
 brew install derailed/k9s/k9s
-
 

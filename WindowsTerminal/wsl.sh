@@ -2,6 +2,9 @@
 
 echo_light_purple "on WSL: $WSL_DISTRO_NAME ..."
 
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin
+
 export SHELLTYPE=WSL
 
 export PATH_TEMPLATE="/mnt/%s/%s"

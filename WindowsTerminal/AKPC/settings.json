@@ -1,10 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": 
+    "actions":
     [
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -16,17 +16,17 @@
             "id": "User.paste"
         },
         {
-            "command": 
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
         }
     ],
     "copyFormatting": "none",
@@ -36,33 +36,33 @@
     "initialCols": 200,
     "initialPosition": "100,100",
     "initialRows": 60,
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.splitPane.A6751878",
             "keys": "alt+shift+d"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         },
         {
             "allowEmpty": false,
-            "entries": 
+            "entries":
             [
                 {
                     "commandline": null,
@@ -77,16 +77,16 @@
             "type": "folder"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
-            "font": 
+            "font":
             {
                 "face": "CaskaydiaCove Nerd Font"
             }
         },
-        "list": 
+        "list":
         [
             {
                 "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\powershell.png",
@@ -102,11 +102,11 @@
                 "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "guid": "{5e7fcec3-4b8f-547b-a5ff-6a0864972f03}",
                 "hidden": false,
                 "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
                 "name": "Debian",
-                "source": "Windows.Terminal.Wsl",
+                "source": "Microsoft.WSL",
                 "tabColor": "#CE0056"
             },
             {
@@ -189,6 +189,26 @@
                 "hidden": false,
                 "icon": null,
                 "name": "----------"
+            },
+            {
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\visualstudio.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "guid": "{367bba40-44fc-518d-b527-9f6cc7e8d381}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio",
+                "startingDirectory": "D:\\Code"
+            },
+            {
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\visualstudio.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "guid": "{7081948b-3d4d-584b-b9fe-2f63de3ad041}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio",
+                "startingDirectory": "D:\\Code"
             },
             {
                 "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\visualstudio.png",
@@ -395,22 +415,10 @@
                 "hidden": false,
                 "name": "SSH - git.local.akoessler.com",
                 "source": "Windows.Terminal.SSH"
-            },
-            {
-                "guid": "{367bba40-44fc-518d-b527-9f6cc7e8d381}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{7081948b-3d4d-584b-b9fe-2f63de3ad041}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#300A24",

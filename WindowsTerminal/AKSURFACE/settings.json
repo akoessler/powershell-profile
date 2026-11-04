@@ -16,10 +16,6 @@
             "id": "User.paste"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command":
             {
                 "action": "splitPane",
@@ -27,6 +23,10 @@
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         }
     ],
     "copyFormatting": "none",
@@ -43,12 +43,12 @@
             "keys": "ctrl+c"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.splitPane.A6751878",
@@ -89,7 +89,7 @@
         "list":
         [
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\powershell.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\powershell.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -99,18 +99,18 @@
                 "tabColor": "#477CDA"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\ubuntu.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "guid": "{3797b72a-59ec-51cb-96a5-996d9ee4c2c2}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\Icons\\ubuntu.ico",
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
-                "tabColor": "#DD4814"
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
+                "name": "Debian",
+                "source": "Microsoft.WSL",
+                "tabColor": "#CE0056"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\git.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\git.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
@@ -127,7 +127,7 @@
                 "name": "----------"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\azure.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\azure.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -143,7 +143,7 @@
                 "name": "----------"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\cmd.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\cmd.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -153,19 +153,19 @@
                 "tabColor": "#000000"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\Cygwin.ico",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\Cygwin.ico",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "commandline": "cmd /K \"C:\\cygwin64\\Cygwin.bat\"",
                 "guid": "{52636aaa-32c9-4126-8bf0-b0a98d072b49}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\Icons\\Cygwin-Terminal.ico",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\Cygwin-Terminal.ico",
                 "name": "Cygwin",
                 "startingDirectory": "D:\\Code",
                 "tabColor": "#25C725"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\powershell.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\powershell.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -180,46 +180,46 @@
                 "name": "----------"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\unifi.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\unifi.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh root@cloudkey.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH cloudkey.local.akoessler.com -username root\"",
                 "guid": "{85bca508-079a-480e-854d-a3e4596cbbc6}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\unifi.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\unifi.png",
                 "name": "Cloudkey - SSH",
                 "tabColor": "#0044FF"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\synology.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh administrator@nas.local.akoessler.com -p 2222\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH nas.local.akoessler.com -username administrator -port 2222\"",
                 "guid": "{7508e1dd-8193-4884-b121-9261ff090be1}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\synology.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\synology.png",
                 "name": "Synology NAS - SSH",
                 "tabColor": "#A7A5A6"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\raspberrypi.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh pi@raspberrypi\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH raspberrypi -username akoessler\"",
                 "guid": "{d4030bc5-d1cf-4965-8619-9803716ac25e}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\raspberrypi.png",
                 "name": "Raspberry PI - SSH",
                 "tabColor": "#C31C4A"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\proxmox.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\proxmox.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh root@proxmox.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH proxmox.local.akoessler.com -username root\"",
                 "guid": "{e75654cb-630c-4968-a313-3472f02bb7e2}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\proxmox.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\proxmox.png",
                 "name": "Proxmox (NUC) - SSH",
                 "tabColor": "#E57000"
             },
@@ -230,70 +230,98 @@
                 "name": "----------"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\raspberrypi.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@pihole.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH pihole.local.akoessler.com -username akoessler\"",
                 "guid": "{d671b703-c7b4-41bd-891c-0b35e4c9de18}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\raspberrypi.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\raspberrypi.png",
                 "name": "pihole - SSH",
                 "tabColor": "#C31C4A"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\letsencrypt.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\letsencrypt.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@cert.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH cert.local.akoessler.com -username akoessler\"",
                 "guid": "{e49332f6-7f7a-40e0-bdd7-e388a35762b9}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\Icons\\letsencrypt.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\letsencrypt.png",
                 "name": "cert - SSH",
                 "tabColor": "#C90BA9"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\gitea.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@gitea.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH gitea.local.akoessler.com -username akoessler\"",
                 "guid": "{7c390b87-d9dd-48c7-8149-cda0d7666b0c}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\gitea.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\gitea.png",
                 "name": "Gitea - SSH",
                 "tabColor": "#E57000"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\homeassistant.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@homeassistant.local.akoessler.com -m hmac-sha2-512-etm@openssh.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH homeassistant.local.akoessler.com -username akoessler -macspec hmac-sha2-512-etm@openssh.com\"",
                 "guid": "{413e7ab0-f3f2-432b-a1f8-a48b52dc9b89}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\homeassistant.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\homeassistant.png",
                 "name": "Homeassistant - SSH",
                 "tabColor": "#40BDF5"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\docker.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\docker.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@container.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH container.local.akoessler.com -username akoessler\"",
                 "guid": "{b7b64d57-2d55-4c2b-920b-b5d5847e01bc}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\docker.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\docker.png",
                 "name": "Container - SSH",
                 "tabColor": "#08489B"
             },
             {
-                "backgroundImage": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\mail.png",
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\mail.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "commandline": "pwsh -noexit -command \"ssh akoessler@mail.local.akoessler.com\"",
+                "commandline": "pwsh -noexit -command \"Connect-SSH mail.local.akoessler.com -username akoessler\"",
                 "guid": "{9d392416-4944-48d5-9b53-372e748ce8c1}",
                 "hidden": false,
-                "icon": "%Nextcloud%\\Programs\\WindowsTerminal\\BackgroundImages\\mail.png",
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\mail.png",
                 "name": "Mail - SSH",
                 "tabColor": "#FFF052"
+            },
+            {
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\print.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"Connect-SSH print.local.akoessler.com -username akoessler\"",
+                "guid": "{3d63775b-3725-4e48-96fa-51220273ca3f}",
+                "hidden": false,
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\print.png",
+                "name": "Print - SSH",
+                "tabColor": "#C852FF"
+            },
+            {
+                "guid": "{f0815d5d-86cb-4391-973c-95a58ebccb20}",
+                "hidden": false,
+                "icon": null,
+                "name": "----------"
+            },
+            {
+                "backgroundImage": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\test.png",
+                "backgroundImageAlignment": "topRight",
+                "backgroundImageStretchMode": "none",
+                "commandline": "pwsh -noexit -command \"Connect-SSH test.local.akoessler.com -username akoessler\"",
+                "guid": "{347b0e1e-9a35-4949-b0d2-911055eb1003}",
+                "hidden": false,
+                "icon": "%Nextcloud%\\Documents\\PowerShell\\WindowsTerminal\\Images\\test.png",
+                "name": "TEST - SSH",
+                "tabColor": "#06F70E"
             },
             {
                 "guid": "{ed2b16af-3146-58c1-aa5a-e3633aabec86}",

@@ -24,10 +24,6 @@ function update() {
     sudo apt-get autoremove -y
 
     echo ""
-    echo_light_blue "Updating PowerShell..."
-    update-powershell
-
-    echo ""
     echo_light_blue "Updating node..."
     update-node
 

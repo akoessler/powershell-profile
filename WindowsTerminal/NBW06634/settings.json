@@ -61,7 +61,7 @@
                 "backgroundImage": "%USERPROFILE%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
                 "backgroundImageAlignment": "topRight",
                 "backgroundImageStretchMode": "none",
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "guid": "{bdcdbccf-8818-5039-b0c7-21d0f4b89ad5}",
                 "hidden": false,
                 "icon": "%USERPROFILE%\\Documents\\PowerShell\\WindowsTerminal\\Images\\debian.png",
                 "name": "Debian",

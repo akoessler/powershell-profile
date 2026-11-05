@@ -15,12 +15,14 @@ sudo passwd root
 sudo apt update
 sudo apt install -y \
     apt-transport-https base-files base-passwd bat bash bsdutils build-essential buildah btop \
-    ca-certificates clang cmake curl daemonize dash dbus-user-session diffutils file findutils \
-    fontconfig fzf gcc gedit git git-svn gnupg golang-go gpg grep gdb gzip hostname htop init jq less \
-    lsb-release man-db mono-devel moreutils nano neovim net-tools ninja-build openssh-server openssh-client \
-    perl perl-doc pipx podman podman-compose pkg-config procps python3-full python3-pip ripgrep \
-    rlwrap rsync sed skopeo subversion sudo tree unzip virtualenv wget whois xz-utils yq zip zsh
-
+    ca-certificates clang cmake curl daemonize dash dbus-user-session diffutils \
+    file findutils fontconfig fzf gcc gedit git git-svn gnupg golang-go gpg grep gdb gzip \
+    hostname htop init jq less libgtk-3-dev libglu1-mesa libstdc++-12-dev lsb-release \
+    man-db mesa-utils mono-devel moreutils nano neovim net-tools ninja-build \
+    openssh-server openssh-client perl perl-doc pipx \
+    podman podman-compose pkg-config procps python3-full python3-pip \
+    ripgrep rlwrap rsync sed skopeo subversion sudo tree unzip \
+    virtualenv wget whois xz-utils yq zip zsh
 
 
 ##### additional packages
@@ -50,6 +52,8 @@ rm packages-microsoft-prod.deb
 sudo apt-get update
 sudo apt-get install -y powershell
 pwsh
+# in powershell:
+. $ENV:POWERSHELL_PROFILE_DIR/install-everything.ps1
 
 
 # dotnet
@@ -155,4 +159,32 @@ kubectl version --client
 # https://k9scli.io/topics/install/
 
 brew install derailed/k9s/k9s
+
+
+# flutter (for WSL)
+# https://dev.to/abdullahyasir/flutter-development-setup-for-wsl2-windows-android-studio-complete-guide-4493
+# https://fvm.app/documentation/getting-started/installation
+# https://docs.flutter.dev/install/manual
+
+curl -fsSL https://fvm.app/install.sh | bash
+fvm install stable
+fvm global stable
+flutter config --jdk-dir "/usr/lib/jvm/temurin-25-jdk-amd64"
+fvm flutter --version
+fvm flutter doctor
+
+
+# Android Studio
+# https://developer.android.com/studio
+
+## get linux download link, e.g. https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-linux.tar.gz
+cd ~
+curl -o android-studio.tar.gz https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-linux.tar.gz
+tar -xzvf android-studio.tar.gz
+rm android-studio.tar.gz
+cd ~/android-studio/bin
+./studio
+# download sdk and cmdline tools
+android sdk --version
+adb --version
 

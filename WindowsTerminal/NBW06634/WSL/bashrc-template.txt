@@ -1,0 +1,8 @@
+
+
+########## CUSTOM ##########
+
+. /mnt/c/Users/ankoessler/Documents/PowerShell/.bashrc
+
+########## CUSTOM ##########
+
